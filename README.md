@@ -6,6 +6,8 @@ This tutorial includes information on how to write a job for jobflows, how to co
 
 This tutorial is also connected to binder and google collab so that you can execute the code via their services.
 
+Please access the tutorial here: [https://jageo.github.io/Advanced_Jobflow_Tutorial/intro.html](https://jageo.github.io/Advanced_Jobflow_Tutorial/intro.html)
+
 ## Contributions
 Everyone is very much invited to contribute suggestions or changes via pull requests.
 
