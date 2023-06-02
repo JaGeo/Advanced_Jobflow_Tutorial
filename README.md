@@ -1,5 +1,13 @@
-# Tutorial Automation
+# Advanced Tutorial for Automating Tasks in Computational Materials Science with Jobflow
 
-This is a first draft for a tutorial on automating computational chemistry tasks with jobflow. This tutorial is intended to bridge the gap between the current tutorials in jobflow, which explain how jobflow can be used for automatizing any task, and a advanced computational chemistry workflow manager as atomate2 which relies on jobflow.
+This tutorial is aimed at developers who would like to develop workflows with Jobflow. This could include contributions to [atomate2](https://github.com/materialsproject/atomate2) and [quacc](https://github.com/Quantum-Accelerators/quacc).
 
-Feedback is very welcome! I would like to publish the tutorial at some point but not now!
+This tutorial includes information on how to write a job for jobflows, how to connect jobs to a workflow including dynamic features and how to store job results in databases. The structure of the workflow is inspired by workflows that have been developed for [atomate2](https://github.com/materialsproject/atomate2) and [quacc](https://github.com/Quantum-Accelerators/quacc).
+
+
+## Contributions
+Everyone is very much invited to contribute suggestions or changes via pull requests.
+
+
+## Contributors
+This tutorial has been written by [J. George](https://github.com/JaGeo) from the [Computational Materials Design group](https://jageo.github.io/) at the [Federal Institute for Materials Research and Testing](https://www.bam.de/Content/EN/Standard-Articles/About-us/Jobs-and-Careers/Young-Science/junior-research-group-george-computational-materials-design.html). Further contributions have been made by  [Aakash Naik](https://github.com/naik-aakash/) and [Christina Ertural](https://github.com/QuantumChemist).
