@@ -1,0 +1,1686 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>The Tutorial &#8212; Advanced Tutorial for Automating Tasks in Computational Materials Science with Jobflow</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Advanced Tutorial for Automating Tasks in Computational Materials Science with Jobflow</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The Tutorial</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tutorial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jobflow">Jobflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-relevant-software">Install Relevant Software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-to-compute-the-equation-of-state-e-g-to-compute-a-bulk-modulus">Workflow to compute the equation of state (e.g., to compute a bulk modulus)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-computation-work-without-workflow">How does the computation work without workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-medium-theory-emt">Effective Medium Theory (EMT)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#required-job-types">Required job types</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-optimization">Structure optimization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-energies-and-volumes-for-the-equation-of-state">Computing energies and volumes for the equation of state</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-and-evaluating-the-equation-of-state">Plotting and evaluating the equation of state</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-implementation-equation-of-state">Workflow implementation (Equation of State)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-optimization-job">Structural Optimization (Job)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-structures-with-different-volumes-and-start-the-constant-volume-optimizations-job">Create structures with different volumes and start the constant-volume optimizations (job)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-job">Summary Job</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#full-workflow">Full workflow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-of-the-results-with-pydantic">Validation of the results with pydantic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-to-compute-phonons-vibrational-properties-of-crystals">Workflow to compute phonons (vibrational properties of crystals)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-phonopy">Install Phonopy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-structure">Workflow structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-forces-of-displaced-structures">Compute Forces of Displaced Structures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-displaced-structures-job">Create displaced structures (job)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-forces-computations-job">Start forces computations (job)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-and-summary-job">Plots and Summary (Job)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-tutorial">
+<h1>The Tutorial<a class="headerlink" href="#the-tutorial" title="Permalink to this heading">#</a></h1>
+<section id="jobflow">
+<h2>Jobflow<a class="headerlink" href="#jobflow" title="Permalink to this heading">#</a></h2>
+<p>We will use <a class="reference external" href="https://github.com/materialsproject/jobflow">jobflow</a> to write and execute workflows on our local machines. One can also start these computations on supercomputers and convert the flows from jobflow to Workflows that can be executed with <a class="reference external" href="https://materialsproject.github.io/fireworks/">Fireworks</a>. This allows for parallel execution of jobs that are in the same workflow.</p>
+<p>We recommend doing the basic jobflow tutorials <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/1-quickstart.html">Five-minute Quickstart</a>, <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/2-introduction.html">Introdution to jobflow</a> and <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/3-defining-jobs.html">Defining jobs in jobflow</a> before starting with this tutorial.</p>
+<p>The tutorial will cover the development of a workflow to compute the equation of state and of a workflow to compute vibrational properties (phonons). It aims at the computational materials science community rather than chemistry but the workflow development should not be different. The tutorial will assume background in solid-state chemistry and physics.</p>
+</section>
+<section id="install-relevant-software">
+<h2>Install Relevant Software<a class="headerlink" href="#install-relevant-software" title="Permalink to this heading">#</a></h2>
+<p>We start by installing all relevant software. We will use jobflow but also two typical software from computational materials science. <a class="reference external" href="https://gitlab.com/ase/ase">ASE</a> and <a class="reference external" href="https://pymatgen.org/">pymatgen</a>. <a class="reference external" href="https://pymatgen.org/">pymatgen</a> works especially well together with jobflow as both have been developed in the context of the <a class="reference external" href="https://materialsproject.org/">Materials Project</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install jobflow
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install ase
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install pymatgen
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="workflow-to-compute-the-equation-of-state-e-g-to-compute-a-bulk-modulus">
+<h2>Workflow to compute the equation of state (e.g., to compute a bulk modulus)<a class="headerlink" href="#workflow-to-compute-the-equation-of-state-e-g-to-compute-a-bulk-modulus" title="Permalink to this heading">#</a></h2>
+<p>In this first tutorial, we will build ´flows´ and ´jobs´ to automatize the computation of the equation of state. This tutorial has been inspired by the equation of state tutorial from ASE: <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/tutorials/eos/eos.html">https://wiki.fysik.dtu.dk/ase/tutorials/eos/eos.html</a>.</p>
+<p>Please also check out this nice paper that compares different equations of state: <a class="reference external" href="https://doi.org/10.1038/s41524-018-0091-x">K. Latimer, S. Dwaraknath, K. Mathew, D. Winston, K. A. Persson, npj Comput Mater 2018, 4, 40.</a> You can use the different equations of state with the help of <a class="reference external" href="https://github.com/materialsproject/pymatgen">pymatgen</a>.</p>
+<section id="how-does-the-computation-work-without-workflow">
+<h3>How does the computation work without workflow<a class="headerlink" href="#how-does-the-computation-work-without-workflow" title="Permalink to this heading">#</a></h3>
+<p>We will start by looking at how we would compute the results without workflow. To avoid needing large computing resources, we will choose a very fast <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/calculators/calculators.html">calculator</a> from ase (i.e., an object to compute energies, forces and stresses from ab initio theories or force fields for a given structure) and small unit cells during the computations. The exact method “Effective Medium Theory” will be introduced below.</p>
+<p>We will start by constructing a simple unit cell with the <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object in ASE: Ag in fcc structure type. The <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object in ASE is used to represent the structure. It can also be directly connected to electronic energies, forces and stresses when a calculator is added.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">bulk</span>
+
+<span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;Ag&quot;</span><span class="p">,</span> <span class="s2">&quot;fcc&quot;</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[0.0, 1.95, 1.95], [1.95, 0.0, 1.95], [1.95, 1.95, 0.0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is possible to visualize the structure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.visualize.plot</span> <span class="kn">import</span> <span class="n">plot_atoms</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="_images/d106bb63a214987d5e13c80137c83bf7e30e7778d23f879c27201d997398579d.png" src="_images/d106bb63a214987d5e13c80137c83bf7e30e7778d23f879c27201d997398579d.png" />
+</div>
+</div>
+<p>Besides using an ASE <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object, we will later on also use <code class="docutils literal notranslate"><span class="pre">Structure</span></code> objects from pymatgen. They are very handy as they can be easily converted to json which is used by jobflow to encode job outputs. There are conversion tools from the <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object to the <code class="docutils literal notranslate"><span class="pre">Structure</span></code> object available in pymatgen. Let’s create a <code class="docutils literal notranslate"><span class="pre">Structure</span></code> object from an <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object. This converter will only convert the structural information but not information on the computations that can also be stored in the <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymatgen.io.ase</span> <span class="kn">import</span> <span class="n">AseAtomsAdaptor</span>
+
+<span class="n">structure</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">as_dict</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full Formula (Ag1)
+Reduced Formula: Ag
+abc   :   2.757716   2.757716   2.757716
+angles:  60.000000  60.000000  60.000000
+pbc   :       True       True       True
+Sites (1)
+  #  SP      a    b    c
+---  ----  ---  ---  ---
+  0  Ag      0    0    0
+{&#39;@module&#39;: &#39;pymatgen.core.structure&#39;, &#39;@class&#39;: &#39;Structure&#39;, &#39;charge&#39;: 0, &#39;lattice&#39;: {&#39;matrix&#39;: [[0.0, 1.95, 1.95], [1.95, 0.0, 1.95], [1.95, 1.95, 0.0]], &#39;pbc&#39;: (True, True, True), &#39;a&#39;: 2.7577164466275352, &#39;b&#39;: 2.7577164466275352, &#39;c&#39;: 2.7577164466275352, &#39;alpha&#39;: 59.99999999999999, &#39;beta&#39;: 59.99999999999999, &#39;gamma&#39;: 59.99999999999999, &#39;volume&#39;: 14.829749999999999}, &#39;sites&#39;: [{&#39;species&#39;: [{&#39;element&#39;: &#39;Ag&#39;, &#39;occu&#39;: 1}], &#39;abc&#39;: [0.0, 0.0, 0.0], &#39;xyz&#39;: [0.0, 0.0, 0.0], &#39;label&#39;: &#39;Ag&#39;, &#39;properties&#39;: {}}]}
+</pre></div>
+</div>
+</div>
+</div>
+<section id="effective-medium-theory-emt">
+<h4>Effective Medium Theory (EMT)<a class="headerlink" href="#effective-medium-theory-emt" title="Permalink to this heading">#</a></h4>
+<p>To calculate energies, forces and stresses, we will use effective-medium theory as described in <a class="reference external" href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.35.7423">K. W. Jacobsen, J. K. Norskov, M. J. Puska, Phys. Rev. B 1987, 35, 7423–7442.
+</a> We mainly use this approximation to be able to perform the computations without high-performance computers and still have reasonable results for simple solids such as Ag. The method is based on an ansatz that assumes that the total electron density can be expressed as a sum of the electron densities of individual atoms. The electron densities of the individual atoms are calculated separately assuming that each atom is embedded in a homogeneous electron gas. It’s not necessary to understand this approximation in detail to perform the exercises. Typically, our workflows in computational materials science use DFT (e.g., as implemented in VASP).</p>
+<p>Let’s add the EMT calculator to the <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.calculators.emt</span> <span class="kn">import</span> <span class="n">EMT</span>
+
+<span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">EMT</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="required-job-types">
+<h4>Required job types<a class="headerlink" href="#required-job-types" title="Permalink to this heading">#</a></h4>
+<p>To perform all necessary computations both for the equation of state and for the phonon computation, we need structural optimizations and static runs.</p>
+</section>
+<section id="structure-optimization">
+<h4>Structure optimization<a class="headerlink" href="#structure-optimization" title="Permalink to this heading">#</a></h4>
+<p>We will use a standard optimizer from ASE (<a class="reference external" href="https://databases.fysik.dtu.dk/ase/ase/optimize.html#ase.optimize.BFGS">BFGS</a>) here to perform the optimization. We add an additional <code class="docutils literal notranslate"><span class="pre">Filter</span></code>, the <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/constraints.html#the-expcellfilter-class">ExpCellFilter</a>, to also optimize the cell parameters and not only the atomic positions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.optimize</span> <span class="kn">import</span> <span class="n">BFGS</span>
+<span class="kn">from</span> <span class="nn">ase.constraints</span> <span class="kn">import</span> <span class="n">ExpCellFilter</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">atoms</span><span class="p">))</span>
+<span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[0.0, 1.95, 1.95], [1.95, 0.0, 1.95], [1.95, 1.95, 0.0]], calculator=EMT(...))
+      Step     Time          Energy         fmax
+BFGS:    0 16:03:33        0.088477        1.5173
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 16:03:33        0.018361        0.6601
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 16:03:33       -0.000016        0.0864
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 16:03:33       -0.000365        0.0064
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 16:03:33       -0.000367        0.0001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    5 16:03:33       -0.000367        0.0000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.0317762972959135, 2.3373590085817006e-15, 2.0317762972959117], [2.031776297295913, 2.0317762972959126, 1.2589072243282675e-16]], calculator=EMT(...))
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have printed the <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object before and after the optimization. As you can see, the cell parameters have changed. The atomic positions will typically not change due to the high symmetry of the chosen structure.</p>
+<p>Next, we are printing the results for energies, forces and stresses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;energy&#39;: -0.00036686253946172087, &#39;energies&#39;: array([-0.00036686]), &#39;free_energy&#39;: -0.00036686253946172087, &#39;forces&#39;: array([[0., 0., 0.]]), &#39;stress&#39;: array([-3.44910465e-09, -3.44910586e-09, -3.44910471e-09,  5.07608054e-16,
+        1.58738221e-17, -7.53100562e-17])}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="computing-energies-and-volumes-for-the-equation-of-state">
+<h4>Computing energies and volumes for the equation of state<a class="headerlink" href="#computing-energies-and-volumes-for-the-equation-of-state" title="Permalink to this heading">#</a></h4>
+<p>After this full optimization of the structure, we will now scale the cell parameters to get our energy-volume curve. At each of the scaled cells, we will perform an optimization with constant volume and evaluate the energy at the different volumes. We start with current cell parameters after the full optimization:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_cell</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cell([[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.0317762972959135, 2.3373590085817006e-15, 2.0317762972959117], [2.031776297295913, 2.0317762972959126, 1.2589072243282675e-16]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will first test the scaling with a volume change of 1%:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_cell</span> <span class="o">=</span> <span class="n">cell</span> <span class="o">*</span> <span class="mf">1.01</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_cell</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-2.32169914e-16  2.05209406e+00  2.05209406e+00]
+ [ 2.05209406e+00  2.36073260e-15  2.05209406e+00]
+ [ 2.05209406e+00  2.05209406e+00  1.27149630e-16]]
+Cell([[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.0317762972959135, 2.3373590085817006e-15, 2.0317762972959117], [2.031776297295913, 2.0317762972959126, 1.2589072243282675e-16]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we will perform the full energy volume-curve computation. The optimizations that we will perform will now be at constant volume. After the optimization, we are collecting the volumes and energies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">ase.io.trajectory</span> <span class="kn">import</span> <span class="n">Trajectory</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="n">cell</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_cell</span><span class="p">()</span>
+
+<span class="n">volumes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">energies</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">]:</span>
+    <span class="n">optimized_atoms</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+    <span class="n">optimized_atoms</span><span class="o">.</span><span class="n">set_cell</span><span class="p">(</span><span class="n">cell</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">scale_atoms</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">optimized_atoms</span><span class="p">,</span> <span class="n">constant_volume</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;./optimization.log&quot;</span><span class="p">)</span>
+    <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
+    <span class="n">volumes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">optimized_atoms</span><span class="o">.</span><span class="n">get_volume</span><span class="p">())</span>
+    <span class="n">energies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">optimized_atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">volumes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">energies</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[14.382304526892272, 15.309918086569299, 16.27658340882234, 16.774812103096398, 17.283105684632318, 18.330290104980214, 19.418941860846967]
+[0.14168852968516887, 0.04714559046761835, 0.004531478880869244, -0.00036686253946172087, 0.004180145974302718, 0.03765776040276947, 0.0980053988235543]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-and-evaluating-the-equation-of-state">
+<h4>Plotting and evaluating the equation of state<a class="headerlink" href="#plotting-and-evaluating-the-equation-of-state" title="Permalink to this heading">#</a></h4>
+<p>We will now plot the equation of state:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.units</span> <span class="kn">import</span> <span class="n">kJ</span>
+<span class="kn">from</span> <span class="nn">ase.eos</span> <span class="kn">import</span> <span class="n">EquationOfState</span>
+
+<span class="n">eos</span> <span class="o">=</span> <span class="n">EquationOfState</span><span class="p">(</span><span class="n">volumes</span><span class="p">,</span> <span class="n">energies</span><span class="p">)</span>
+<span class="n">v0</span><span class="p">,</span> <span class="n">e0</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">eos</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="s1">&#39;eV Angstrom**(-3)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span> <span class="o">/</span> <span class="n">kJ</span> <span class="o">*</span> <span class="mf">1.0e24</span><span class="p">,</span> <span class="s1">&#39;GPa&#39;</span><span class="p">)</span>
+<span class="n">eos</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;outputs/Ag-eos.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6242845498684262 eV Angstrom**(-3)
+100.02141105258441 GPa
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;sj: E: -0.000 eV, V: 16.776 Å$^3$, B: 100.021 GPa&#39;}, xlabel=&#39;volume [Å$^3$]&#39;, ylabel=&#39;energy [eV]&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/5b3a77a766329a70c0d5777fd61a79526a4a3552d91de475ec293d3161d3685c.png" src="_images/5b3a77a766329a70c0d5777fd61a79526a4a3552d91de475ec293d3161d3685c.png" />
+</div>
+</div>
+<p>The result is acceptable for us. You can compare the result from EMT to DFT results here: <a class="reference external" href="https://materialsproject.org/materials/mp-124?chemsys=Ag#equations_of_state">https://materialsproject.org/materials/mp-124?chemsys=Ag#equations_of_state</a> The volume from EMT is different by 1 Angstrom³ and Bulk modulus from eMT is off by a factor of 10 depending on the equation of state.</p>
+<p>We now have a workflow that starts with full structural optimization. After the structural optimization, structures with different volumes have to be created. Then, several structural optimizations with constant volume can be started. They are independent of each other and could run in parallel. At the very end, energies and volumes from these constant-volume optimizations are collected and the equation of state is fitted. An illustration of the workflow follows.</p>
+<p><img alt="Workflow" src="_images/workflow.png" /></p>
+</section>
+</section>
+<section id="workflow-implementation-equation-of-state">
+<h3>Workflow implementation (Equation of State)<a class="headerlink" href="#workflow-implementation-equation-of-state" title="Permalink to this heading">#</a></h3>
+<p>Jobflow implements <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects that are connected to a <code class="docutils literal notranslate"><span class="pre">Flow</span></code>. We typically use the <code class="docutils literal notranslate"><span class="pre">M̀aker</span></code> class from Jobflow to create jobs and flows. <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/4-generalized-makers.html">There is also a tutorial on how to write a Maker.</a>. A <code class="docutils literal notranslate"><span class="pre">Job</span></code> is an entity that can be executed independently. We therefore have four different job types to write for the workflow above: a full structural optimization, a job to create structures with different volumes, a structural optimization with the constraint of constant volume, and a job that plots and summarizes the results for the database. As the full structural optimization and the structural optimization with the constraint of constant volume are so similar, we will write a combined class inheriting from <code class="docutils literal notranslate"><span class="pre">M̀aker</span></code> class to create these jobs.</p>
+<section id="structural-optimization-job">
+<h4>Structural Optimization (Job)<a class="headerlink" href="#structural-optimization-job" title="Permalink to this heading">#</a></h4>
+<p>Let’s work on an atomic job to optimize the structure. We will use a <code class="docutils literal notranslate"><span class="pre">Structure</span></code> object to carry the structural information as it can be easily transformed into json. We need the json format as we will save our results in databases that build upon the json format. Serialization is more complicated for an <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object. Check out <span class="xref myst">https://materialsproject.github.io/maggma/concepts</span> to learn more.</p>
+<p>To write an atomic job in jobflow, we have to inherit from the <code class="docutils literal notranslate"><span class="pre">Maker</span></code> class and adapt the <code class="docutils literal notranslate"><span class="pre">make</span></code> method. You can find more about jobs here: <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/3-defining-jobs.html">https://materialsproject.github.io/jobflow/tutorials/3-defining-jobs.html</a>. Please don’t forget to add the decorators (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code>) as they are central for the execution of the workflow.  The decorator <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code> will add special methods to the class. See here for more info: <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a></p>
+<p>Let’s import <code class="docutils literal notranslate"><span class="pre">M̀aker</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow.core.maker</span> <span class="kn">import</span> <span class="n">Maker</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jgeorge/miniconda3/envs/AutomationTutorial/lib/python3.10/site-packages/maggma/utils.py:21: TqdmExperimentalWarning: Using `tqdm.autonotebook.tqdm` in notebook mode. Use `tqdm.tqdm` instead to force console mode (e.g. in jupyter console)
+  from tqdm.autonotebook import tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will write a job <code class="docutils literal notranslate"><span class="pre">OptimizeJob</span></code> which inherits from <code class="docutils literal notranslate"><span class="pre">Maker</span></code> and implement the <code class="docutils literal notranslate"><span class="pre">make</span></code> method. We add a <code class="docutils literal notranslate"><span class="pre">name</span></code> to the maker which will later on help us identify which job is running. The <code class="docutils literal notranslate"><span class="pre">make</span></code> method will take structure as an input.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">job</span><span class="p">,</span> <span class="n">Maker</span>
+<span class="kn">from</span> <span class="nn">pymatgen.core.structure</span> <span class="kn">import</span> <span class="n">Structure</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">OptimizeJob</span><span class="p">(</span><span class="n">Maker</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to carry out a full optimization of a structure with the EMT calculator</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name</span>
+<span class="sd">        Name of the job.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;EMT-Optimization&quot;</span>
+
+    <span class="nd">@job</span>
+    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">structure</span><span class="p">:</span> <span class="n">Structure</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the next step, we simply add steps to perform the optimization. Thus, we take the same classes, methods and functions as before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">job</span>
+<span class="kn">from</span> <span class="nn">pymatgen.core.structure</span> <span class="kn">import</span> <span class="n">Structure</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">OptimizeJob</span><span class="p">(</span><span class="n">Maker</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to carry out a full optimization of a structure with the EMT calculator</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name</span>
+<span class="sd">        Name of the job.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;EMT-Optimization&quot;</span>
+
+    <span class="nd">@job</span>
+    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">structure</span><span class="p">:</span> <span class="n">Structure</span><span class="p">):</span>
+        <span class="n">adaptor</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span>
+        <span class="n">atoms</span> <span class="o">=</span> <span class="n">adaptor</span><span class="o">.</span><span class="n">get_atoms</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>  <span class="c1"># get an atoms object</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">EMT</span><span class="p">()</span>  <span class="c1"># add emt as a calculator</span>
+
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">atoms</span><span class="p">),</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;./optimization.log&quot;</span><span class="p">)</span>  <span class="c1"># optimize the structure including cell parameters</span>
+        <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>  <span class="c1"># run the optimization</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have now built a Maker to optimize our structure. We might want to add <code class="docutils literal notranslate"><span class="pre">fmax</span></code> as a parameter of our <code class="docutils literal notranslate"><span class="pre">Maker</span></code> to change the default values. We will not do this for all potential settings as it just takes a lot of time to implement… It’s possible to summarize such settings within one dict, e.g. called <code class="docutils literal notranslate"><span class="pre">optimize_kwargs</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">OptimizeJob</span><span class="p">(</span><span class="n">Maker</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to carry out a full optimization of a structure with the EMT calculator</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name</span>
+<span class="sd">        Name of the job.</span>
+<span class="sd">    fmax</span>
+<span class="sd">        float that determines the forces after optimization</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;EMT-Optimization&quot;</span>
+    <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.00001</span>
+
+    <span class="nd">@job</span>
+    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">structure</span><span class="p">:</span> <span class="n">Structure</span><span class="p">):</span>
+        <span class="n">adaptor</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span>
+        <span class="n">atoms</span> <span class="o">=</span> <span class="n">adaptor</span><span class="o">.</span><span class="n">get_atoms</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">EMT</span><span class="p">()</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">atoms</span><span class="p">),</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;./optimization.log&quot;</span><span class="p">)</span>
+        <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will add another parameter <code class="docutils literal notranslate"><span class="pre">constant_volume</span></code> to be able to do a constant volume optimization with the same maker.</p>
+<p>To be able to connect different interdependent jobs, we also need to save our results (method should return the results we want to use further down the line) so that we can transfer our results between jobs.  For now, it will be enough to save the optimized structure and the energy at the end. You can also save forces, stresses and so on… Typically, a schema based on <a class="reference external" href="https://docs.pydantic.dev/latest/">Pydantic</a> is developed to save the results. This is again just a lot of work and will not help us to understand the automation itself. It’s again just important that all outputs can be serialized to a json.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">OptimizeJob</span><span class="p">(</span><span class="n">Maker</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to carry out a full optimization of an atoms object</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name</span>
+<span class="sd">        Name of the job.</span>
+<span class="sd">    fmax</span>
+<span class="sd">        float that determines the forces after optimization</span>
+<span class="sd">    constant_volume</span>
+<span class="sd">        bool that if true will enforce an optimization with constant volume</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;EMT-Optimization&quot;</span>
+    <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.00001</span>
+    <span class="n">constant_volume</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="nd">@job</span>
+    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">structure</span><span class="p">:</span> <span class="n">Structure</span><span class="p">):</span>
+        <span class="n">adaptor</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span>
+        <span class="n">atoms</span> <span class="o">=</span> <span class="n">adaptor</span><span class="o">.</span><span class="n">get_atoms</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">EMT</span><span class="p">()</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">constant_volume</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">constant_volume</span><span class="p">),</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;./optimization.log&quot;</span><span class="p">)</span>
+        <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmax</span><span class="p">)</span>
+
+        <span class="n">out_structure</span> <span class="o">=</span> <span class="n">adaptor</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;optimized_structure&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out_structure</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;input_structure&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">structure</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For test purposes, we will simply now chain two optimizations, put them in a Flow (i.e., the object for workflows) and see what happens. We also always have to define an output for the flow. Very often, this is the output of the last job in the flow. We will use <code class="docutils literal notranslate"><span class="pre">run_locally</span></code> to execute the jobs locally. atomate2 has tutorials on how to <a class="reference external" href="https://materialsproject.github.io/atomate2/user/fireworks.html">transfer such jobs to Fireworks</a> or <a class="reference external" href="https://materialsproject.github.io/atomate2/user/running-workflows.html">how to run them with a job script</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow.managers.local</span> <span class="kn">import</span> <span class="n">run_locally</span>
+<span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">Flow</span>
+
+<span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;Ag&quot;</span><span class="p">,</span> <span class="s2">&quot;fcc&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="n">maker_fullopt</span> <span class="o">=</span> <span class="n">OptimizeJob</span><span class="p">()</span>
+<span class="n">maker_opt_constant_vol</span> <span class="o">=</span> <span class="n">OptimizeJob</span><span class="p">(</span><span class="n">constant_volume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">job1</span> <span class="o">=</span> <span class="n">maker_fullopt</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">structure</span><span class="p">)</span>
+<span class="n">job2</span> <span class="o">=</span> <span class="n">maker_opt_constant_vol</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">job1</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;optimized_structure&quot;</span><span class="p">])</span>
+
+<span class="n">flow</span> <span class="o">=</span> <span class="n">Flow</span><span class="p">([</span><span class="n">job1</span><span class="p">,</span> <span class="n">job2</span><span class="p">],</span> <span class="n">output</span><span class="o">=</span><span class="n">job2</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">run_locally</span><span class="p">(</span><span class="n">flow</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,120 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,373 INFO Starting job - EMT-Optimization (89619e9b-74f8-4fe9-bc0c-74228e820d60)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,510 INFO Finished job - EMT-Optimization (89619e9b-74f8-4fe9-bc0c-74228e820d60)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,512 INFO Starting job - EMT-Optimization (5acbb00b-6764-47bd-9f55-5814e07314f3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,587 INFO Finished job - EMT-Optimization (5acbb00b-6764-47bd-9f55-5814e07314f3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,589 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;89619e9b-74f8-4fe9-bc0c-74228e820d60&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
+Lattice
+    abc : 2.87336550651202 2.8733655065120205 2.87336550651202
+ angles : 59.99999999999999 60.00000000000001 59.99999999999999
+ volume : 16.774810547282314
+      A : -1.0240902968258463e-16 2.031776234482168 2.0317762344821686
+      B : 2.0317762344821686 2.323574183069503e-17 2.0317762344821686
+      C : 2.0317762344821686 2.031776234482168 -2.8552862920234554e-17
+    pbc : True True True
+PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;input_structure&#39;: Structure Summary
+Lattice
+    abc : 2.8284271247461903 2.8284271247461903 2.8284271247461903
+ angles : 60.00000000000001 60.00000000000001 60.00000000000001
+ volume : 16.0
+      A : 0.0 2.0 2.0
+      B : 2.0 0.0 2.0
+      C : 2.0 2.0 0.0
+    pbc : True True True
+PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&#39;: -0.000366862539422641}, detour=None, addition=None, replace=None, stored_data=None, stop_children=False, stop_jobflow=False)}, &#39;5acbb00b-6764-47bd-9f55-5814e07314f3&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
+Lattice
+    abc : 2.87336550651202 2.8733655065120205 2.87336550651202
+ angles : 59.99999999999999 60.00000000000001 59.99999999999999
+ volume : 16.774810547282314
+      A : -1.0240902968258463e-16 2.031776234482168 2.0317762344821686
+      B : 2.0317762344821686 2.323574183069503e-17 2.0317762344821686
+      C : 2.0317762344821686 2.031776234482168 -2.8552862920234554e-17
+    pbc : True True True
+PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;input_structure&#39;: Structure Summary
+Lattice
+    abc : 2.87336550651202 2.8733655065120205 2.87336550651202
+ angles : 59.99999999999999 60.00000000000001 59.99999999999999
+ volume : 16.774810547282314
+      A : -1.0240902968258463e-16 2.031776234482168 2.0317762344821686
+      B : 2.0317762344821686 2.323574183069503e-17 2.0317762344821686
+      C : 2.0317762344821686 2.031776234482168 -2.8552862920234554e-17
+    pbc : True True True
+PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&#39;: -0.000366862539422641}, detour=None, addition=None, replace=None, stored_data=None, stop_children=False, stop_jobflow=False)}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, this works. Of course, this is not very useful here but could be useful, for example, for DFT optimizations, where typically at least two full structural optimizations have to be started. Btw, you can also create folders for each atomic job in your workflow by using the parameter <code class="docutils literal notranslate"><span class="pre">create_folders</span></code> from <code class="docutils literal notranslate"><span class="pre">run_locally</span></code>.</p>
+</section>
+<section id="create-structures-with-different-volumes-and-start-the-constant-volume-optimizations-job">
+<h4>Create structures with different volumes and start the constant-volume optimizations (job)<a class="headerlink" href="#create-structures-with-different-volumes-and-start-the-constant-volume-optimizations-job" title="Permalink to this heading">#</a></h4>
+<p>We now need to build a job that creates structures with different volumes and starts the optimizations with constant volume.</p>
+<p>We will start by using a job that is called <code class="docutils literal notranslate"><span class="pre">get_ev_curve</span></code>. It will replace itself with a <code class="docutils literal notranslate"><span class="pre">Response</span></code> object that will start a completely new flow or job. As outputs, we will collect all optimized structures and the corresponding energies! We will reuse our maker <code class="docutils literal notranslate"><span class="pre">OptimizeJob</span></code> from above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">Response</span><span class="p">,</span> <span class="n">job</span>
+
+
+<span class="nd">@job</span>
+<span class="k">def</span> <span class="nf">get_ev_curve</span><span class="p">(</span><span class="n">structure</span><span class="p">:</span> <span class="n">Structure</span><span class="p">,</span> <span class="n">volumes</span><span class="o">=</span><span class="p">[</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">]):</span>
+    <span class="n">groundstate_vol</span> <span class="o">=</span> <span class="n">structure</span><span class="o">.</span><span class="n">volume</span>
+    <span class="n">const_vol_maker</span> <span class="o">=</span> <span class="n">OptimizeJob</span><span class="p">(</span><span class="n">constant_volume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">job_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;optimized_structures&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;energies&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="n">vol_inc</span> <span class="ow">in</span> <span class="n">volumes</span><span class="p">:</span>
+        <span class="n">struct_here</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
+        <span class="n">struct_here</span><span class="o">.</span><span class="n">scale_lattice</span><span class="p">(</span><span class="n">groundstate_vol</span> <span class="o">*</span> <span class="n">vol_inc</span><span class="p">)</span>
+        <span class="n">relax_job</span> <span class="o">=</span> <span class="n">const_vol_maker</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">struct_here</span><span class="p">)</span>
+        <span class="n">job_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">relax_job</span><span class="p">)</span>
+        <span class="n">outputs</span><span class="p">[</span><span class="s2">&quot;optimized_structures&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">relax_job</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;optimized_structure&quot;</span><span class="p">])</span>
+        <span class="n">outputs</span><span class="p">[</span><span class="s2">&quot;energies&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">relax_job</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">replace</span><span class="o">=</span><span class="n">Flow</span><span class="p">(</span><span class="n">job_list</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">outputs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now build a flow including the full optimization and the job to change the volumes and start the constant-volume optimizations. We need to transfer the optimized structure to the second job. Please remember that <code class="docutils literal notranslate"><span class="pre">job1.output[&quot;optimized_structure&quot;]</span></code> is a reference to the future output. It can only be accessed if the job has been already executed. You cannot access this output while generating the flow for the first time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;Ag&quot;</span><span class="p">,</span> <span class="s2">&quot;fcc&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="n">maker_fullopt</span> <span class="o">=</span> <span class="n">OptimizeJob</span><span class="p">()</span>
+<span class="n">maker_opt_constant_vol</span> <span class="o">=</span> <span class="n">OptimizeJob</span><span class="p">(</span><span class="n">constant_volume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">job1</span> <span class="o">=</span> <span class="n">maker_fullopt</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">structure</span><span class="p">)</span>
+<span class="n">job2</span> <span class="o">=</span> <span class="n">get_ev_curve</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">job1</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;optimized_structure&quot;</span><span class="p">])</span>
+
+<span class="n">flow</span> <span class="o">=</span> <span class="n">Flow</span><span class="p">([</span><span class="n">job1</span><span class="p">,</span> <span class="n">job2</span><span class="p">],</span> <span class="n">output</span><span class="o">=</span><span class="n">job2</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">run_locally</span><span class="p">(</span><span class="n">flow</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,619 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,621 INFO Starting job - EMT-Optimization (a05cb795-0637-4380-870f-9165122edee5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,745 INFO Finished job - EMT-Optimization (a05cb795-0637-4380-870f-9165122edee5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,749 INFO Starting job - get_ev_curve (d7dc1fd2-05bf-4ee0-a7af-4a78ec69b7a5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,796 INFO Finished job - get_ev_curve (d7dc1fd2-05bf-4ee0-a7af-4a78ec69b7a5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,803 INFO Starting job - EMT-Optimization (614c4cad-223f-4987-acd0-de275400f181)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,852 INFO Finished job - EMT-Optimization (614c4cad-223f-4987-acd0-de275400f181)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,858 INFO Starting job - EMT-Optimization (d1e97b0c-6b97-41a8-afd2-9ac7afb978b6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,893 INFO Finished job - EMT-Optimization (d1e97b0c-6b97-41a8-afd2-9ac7afb978b6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,894 INFO Starting job - EMT-Optimization (4c807df2-e4f2-4593-a246-7de006951d39)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,936 INFO Finished job - EMT-Optimization (4c807df2-e4f2-4593-a246-7de006951d39)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,937 INFO Starting job - EMT-Optimization (675adb3d-2c1a-4deb-9e35-c88f714582d8)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,978 INFO Finished job - EMT-Optimization (675adb3d-2c1a-4deb-9e35-c88f714582d8)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:35,979 INFO Starting job - EMT-Optimization (7a877537-bfad-4e87-9733-95a73c018649)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,015 INFO Finished job - EMT-Optimization (7a877537-bfad-4e87-9733-95a73c018649)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,016 INFO Starting job - EMT-Optimization (ed6abd95-0c67-4665-a326-32f8905ae0d9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,055 INFO Finished job - EMT-Optimization (ed6abd95-0c67-4665-a326-32f8905ae0d9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,057 INFO Starting job - EMT-Optimization (6a6454d3-51e5-4e82-90aa-1521ed55cd31)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,086 INFO Finished job - EMT-Optimization (6a6454d3-51e5-4e82-90aa-1521ed55cd31)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,087 INFO Starting job - store_inputs (d7dc1fd2-05bf-4ee0-a7af-4a78ec69b7a5, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,110 INFO Finished job - store_inputs (d7dc1fd2-05bf-4ee0-a7af-4a78ec69b7a5, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,111 INFO Finished executing jobs locally
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-job">
+<h4>Summary Job<a class="headerlink" href="#summary-job" title="Permalink to this heading">#</a></h4>
+<p>We will now write a job <code class="docutils literal notranslate"><span class="pre">get_results_ev_curve</span></code> that will collect all results, make plots and store the information in a database. It will start from a list of structures and energies and then plot an EV curve to a file and return the most important results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@job</span>
+<span class="k">def</span> <span class="nf">get_results_ev_curve</span><span class="p">(</span><span class="n">list_structures</span><span class="p">,</span> <span class="n">list_energies</span><span class="p">):</span>
+    <span class="n">list_volumes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">struct</span> <span class="ow">in</span> <span class="n">list_structures</span><span class="p">:</span>
+        <span class="n">list_volumes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">volume</span><span class="p">)</span>
+
+    <span class="n">eos</span> <span class="o">=</span> <span class="n">EquationOfState</span><span class="p">(</span><span class="n">list_volumes</span><span class="p">,</span> <span class="n">list_energies</span><span class="p">)</span>
+    <span class="n">v0</span><span class="p">,</span> <span class="n">e0</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">eos</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="n">eos</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;eos.png&#39;</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;V0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;e0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e0</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span>
+
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="full-workflow">
+<h4>Full workflow<a class="headerlink" href="#full-workflow" title="Permalink to this heading">#</a></h4>
+<p>Now, we combine all jobs to a larger workflow and check out the output. To do so, we will need a universally unique identifier (uuid). In our case, this will be te one of the last job. Again, we also need to transfer all information between the jobs correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;Ag&quot;</span><span class="p">,</span> <span class="s2">&quot;fcc&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="n">maker_fullopt</span> <span class="o">=</span> <span class="n">OptimizeJob</span><span class="p">()</span>
+<span class="n">job1</span> <span class="o">=</span> <span class="n">maker_fullopt</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">structure</span><span class="p">)</span>
+<span class="n">job2</span> <span class="o">=</span> <span class="n">get_ev_curve</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">job1</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;optimized_structure&quot;</span><span class="p">])</span>
+<span class="n">job3</span> <span class="o">=</span> <span class="n">get_results_ev_curve</span><span class="p">(</span><span class="n">list_structures</span><span class="o">=</span><span class="n">job2</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;optimized_structures&quot;</span><span class="p">],</span> <span class="n">list_energies</span><span class="o">=</span><span class="n">job2</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;energies&quot;</span><span class="p">])</span>
+<span class="n">flow</span> <span class="o">=</span> <span class="n">Flow</span><span class="p">([</span><span class="n">job1</span><span class="p">,</span> <span class="n">job2</span><span class="p">,</span> <span class="n">job3</span><span class="p">],</span> <span class="n">output</span><span class="o">=</span><span class="n">job3</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">run_locally</span><span class="p">(</span><span class="n">flow</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="n">flow</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">uuid</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,155 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,158 INFO Starting job - EMT-Optimization (da92b3ce-6b1a-434b-bbd6-8dd35bb6b924)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,274 INFO Finished job - EMT-Optimization (da92b3ce-6b1a-434b-bbd6-8dd35bb6b924)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,275 INFO Starting job - get_ev_curve (6d94ffd7-89b7-47ed-bba1-0242a2655597)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,298 INFO Finished job - get_ev_curve (6d94ffd7-89b7-47ed-bba1-0242a2655597)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,304 INFO Starting job - EMT-Optimization (7d9cd5e2-9564-4d33-9046-0a67567803a9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,337 INFO Finished job - EMT-Optimization (7d9cd5e2-9564-4d33-9046-0a67567803a9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,338 INFO Starting job - EMT-Optimization (f40d3bfc-c1d1-4862-bcb8-50fa848b518b)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,370 INFO Finished job - EMT-Optimization (f40d3bfc-c1d1-4862-bcb8-50fa848b518b)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,371 INFO Starting job - EMT-Optimization (c67a3156-c299-4512-a69f-ef94e4893d39)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,402 INFO Finished job - EMT-Optimization (c67a3156-c299-4512-a69f-ef94e4893d39)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,403 INFO Starting job - EMT-Optimization (dd719aab-9e3d-4a14-86fd-d3b8727f7cdb)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,433 INFO Finished job - EMT-Optimization (dd719aab-9e3d-4a14-86fd-d3b8727f7cdb)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,435 INFO Starting job - EMT-Optimization (673b98f8-c79a-4a93-9ac2-79ff6160a457)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,466 INFO Finished job - EMT-Optimization (673b98f8-c79a-4a93-9ac2-79ff6160a457)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,467 INFO Starting job - EMT-Optimization (da32a362-048e-4cda-9748-729dedf0435e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,499 INFO Finished job - EMT-Optimization (da32a362-048e-4cda-9748-729dedf0435e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,501 INFO Starting job - EMT-Optimization (311332f5-be54-489d-b33e-4d8ed4265f46)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,531 INFO Finished job - EMT-Optimization (311332f5-be54-489d-b33e-4d8ed4265f46)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,532 INFO Starting job - store_inputs (6d94ffd7-89b7-47ed-bba1-0242a2655597, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,537 INFO Finished job - store_inputs (6d94ffd7-89b7-47ed-bba1-0242a2655597, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,537 INFO Starting job - get_results_ev_curve (75d8d16f-b9de-430a-a551-b464680dabf4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,758 INFO Finished job - get_results_ev_curve (75d8d16f-b9de-430a-a551-b464680dabf4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:36,762 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;V0&#39;: 16.7748202620472, &#39;e0&#39;: -0.00036673834964062735, &#39;B&#39;: 0.6250761058809655}
+</pre></div>
+</div>
+<img alt="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" src="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" />
+</div>
+</div>
+<p>It works. We get the same results!</p>
+</section>
+<section id="validation-of-the-results-with-pydantic">
+<h4>Validation of the results with pydantic<a class="headerlink" href="#validation-of-the-results-with-pydantic" title="Permalink to this heading">#</a></h4>
+<p>I will just show you now how to validate your data with a <a class="reference external" href="https://docs.pydantic.dev">pydantic</a> schema. This allows to describe your outputs and make sure that you also get all relevant data in the right format. Again, this is only one tiny example. In practice, you would add many more options! This is how such a schema can look in practice: <a class="github reference external" href="https://github.com/materialsproject/atomate2/blob/main/src/atomate2/lobster/schemas.py">materialsproject/atomate2</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+
+<span class="k">class</span> <span class="nc">EOS_Schema</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema to store outputs from EV curve.&quot;&quot;&quot;</span>
+
+    <span class="n">V0</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;Volume in Angstrom**3&quot;</span><span class="p">)</span>
+    <span class="n">e0</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;Energy in eV&quot;</span><span class="p">)</span>
+    <span class="n">B</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="s2">&quot;Bulk modulus&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@job</span><span class="p">(</span><span class="n">output_schema</span><span class="o">=</span><span class="n">EOS_Schema</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_results_ev_curve</span><span class="p">(</span><span class="n">list_structures</span><span class="p">,</span> <span class="n">list_energies</span><span class="p">):</span>
+    <span class="n">list_volumes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">struct</span> <span class="ow">in</span> <span class="n">list_structures</span><span class="p">:</span>
+        <span class="n">list_volumes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">volume</span><span class="p">)</span>
+
+    <span class="n">eos</span> <span class="o">=</span> <span class="n">EquationOfState</span><span class="p">(</span><span class="n">list_volumes</span><span class="p">,</span> <span class="n">list_energies</span><span class="p">)</span>
+    <span class="n">v0</span><span class="p">,</span> <span class="n">e0</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">eos</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="n">eos</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;eos.png&#39;</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;V0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;e0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e0</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span>
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">EOS_Schema</span><span class="p">(</span><span class="o">**</span><span class="n">results</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will add this now to the workflow and run it again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;Ag&quot;</span><span class="p">,</span> <span class="s2">&quot;fcc&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="n">maker_fullopt</span> <span class="o">=</span> <span class="n">OptimizeJob</span><span class="p">()</span>
+<span class="n">job1</span> <span class="o">=</span> <span class="n">maker_fullopt</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">structure</span><span class="p">)</span>
+<span class="n">job2</span> <span class="o">=</span> <span class="n">get_ev_curve</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">job1</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;optimized_structure&quot;</span><span class="p">])</span>
+<span class="n">job3</span> <span class="o">=</span> <span class="n">get_results_ev_curve</span><span class="p">(</span><span class="n">list_structures</span><span class="o">=</span><span class="n">job2</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;optimized_structures&quot;</span><span class="p">],</span> <span class="n">list_energies</span><span class="o">=</span><span class="n">job2</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;energies&quot;</span><span class="p">])</span>
+<span class="n">flow</span> <span class="o">=</span> <span class="n">Flow</span><span class="p">([</span><span class="n">job1</span><span class="p">,</span> <span class="n">job2</span><span class="p">,</span> <span class="n">job3</span><span class="p">],</span> <span class="n">output</span><span class="o">=</span><span class="n">job3</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">run_locally</span><span class="p">(</span><span class="n">flow</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="n">flow</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">uuid</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,009 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,012 INFO Starting job - EMT-Optimization (2d6de7b5-9898-4d9e-a8d0-03524c7cbfbc)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,125 INFO Finished job - EMT-Optimization (2d6de7b5-9898-4d9e-a8d0-03524c7cbfbc)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,126 INFO Starting job - get_ev_curve (d11fa01f-7af1-456e-83ff-d2c10bcdb525)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,144 INFO Finished job - get_ev_curve (d11fa01f-7af1-456e-83ff-d2c10bcdb525)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,150 INFO Starting job - EMT-Optimization (68cb278d-373e-4dc4-90e7-44b98f991e8e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,181 INFO Finished job - EMT-Optimization (68cb278d-373e-4dc4-90e7-44b98f991e8e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,182 INFO Starting job - EMT-Optimization (7cc4a6ff-efc5-4d0c-9c5e-5794e6666c95)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,212 INFO Finished job - EMT-Optimization (7cc4a6ff-efc5-4d0c-9c5e-5794e6666c95)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,213 INFO Starting job - EMT-Optimization (541cb494-9d3b-4683-97eb-c5f88479861c)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,244 INFO Finished job - EMT-Optimization (541cb494-9d3b-4683-97eb-c5f88479861c)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,245 INFO Starting job - EMT-Optimization (466ef0f7-ffb4-4010-bcc1-98c90e536e2d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,275 INFO Finished job - EMT-Optimization (466ef0f7-ffb4-4010-bcc1-98c90e536e2d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,276 INFO Starting job - EMT-Optimization (ff546c93-4f7e-4939-bdcb-e1f10828601f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,307 INFO Finished job - EMT-Optimization (ff546c93-4f7e-4939-bdcb-e1f10828601f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,308 INFO Starting job - EMT-Optimization (57ff93ec-2210-44d9-994a-540141ee50e0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,339 INFO Finished job - EMT-Optimization (57ff93ec-2210-44d9-994a-540141ee50e0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,340 INFO Starting job - EMT-Optimization (56cf9ce9-2d25-41d9-b70a-4adebb58d59e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,372 INFO Finished job - EMT-Optimization (56cf9ce9-2d25-41d9-b70a-4adebb58d59e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,374 INFO Starting job - store_inputs (d11fa01f-7af1-456e-83ff-d2c10bcdb525, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,379 INFO Finished job - store_inputs (d11fa01f-7af1-456e-83ff-d2c10bcdb525, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,380 INFO Starting job - get_results_ev_curve (a9b609a0-1be6-4c29-a4c1-30da5afca160)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,596 INFO Finished job - get_results_ev_curve (a9b609a0-1be6-4c29-a4c1-30da5afca160)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:37,598 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V0=16.7748202620472 e0=-0.00036673834964062735 B=0.6250761058809655
+</pre></div>
+</div>
+<img alt="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" src="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" />
+</div>
+</div>
+<p>You have seen all basic functionalities to write workflows with jobflow.</p>
+</section>
+<section id="exercises">
+<h4>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Please build a maker for the whole workflow! You can find an example here: <a class="github reference external" href="https://github.com/materialsproject/atomate2/blob/main/src/atomate2/vasp/flows/lobster.py">materialsproject/atomate2</a></p></li>
+<li><p>Then, use the maker for different structure or elements: e.g., Al or other elements that work with EMT.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="workflow-to-compute-phonons-vibrational-properties-of-crystals">
+<h2>Workflow to compute phonons (vibrational properties of crystals)<a class="headerlink" href="#workflow-to-compute-phonons-vibrational-properties-of-crystals" title="Permalink to this heading">#</a></h2>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h3>
+<p>We will now write a workflow to compute phonons with <a class="reference external" href="https://phonopy.github.io/phonopy/">Phonopy</a>. We will only compute phonon densities of states and not phonon band structures. It is possible to implement this. However, this is significantly more work and does not help you to learn about the automation itself. If you would like to try this, everything needed is implemented in pymatgen but this is really a more advanced task. Again, we will use the EMT calculator to speed up the calculations.</p>
+</section>
+<section id="install-phonopy">
+<h3>Install Phonopy<a class="headerlink" href="#install-phonopy" title="Permalink to this heading">#</a></h3>
+<p>We need to install phonopy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install phonopy
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="workflow-structure">
+<h3>Workflow structure<a class="headerlink" href="#workflow-structure" title="Permalink to this heading">#</a></h3>
+<p>We will compute phonons with the finite differences approach which implemented in Phonopy. You can check out this reference in case you are interested: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.200906780">https://onlinelibrary.wiley.com/doi/10.1002/anie.200906780</a>.</p>
+<p>We will first optimize the crystal structure, then generate displaced structures and evaluate forces for the displaced structures. This will allow us to compute force constants for the whole unit cell. Those force constants can then be fourier-transformed to the dynamical matrix within Phonopy. This dynamical matrix will then be used to to get frequencies and eigenvalues describing the vibrations  (phonons) in the crystal structure.</p>
+<p>We can reuse the <code class="docutils literal notranslate"><span class="pre">OptimizeJob</span></code> Maker from before for the structural optimization. We need a job that creates the displaced structures and one that starts the evaluations of the forces. This implies that we need an additional static job that just returns forces based on the displaced structure. At the very end, we need a job to summarize the job, create plots and return the results to a database. We will not implement the last job fully.</p>
+<p><img alt="workflow for phonons" src="_images/workflow2.png" /></p>
+</section>
+<section id="compute-forces-of-displaced-structures">
+<h3>Compute Forces of Displaced Structures<a class="headerlink" href="#compute-forces-of-displaced-structures" title="Permalink to this heading">#</a></h3>
+<p>Let’s build a static job first that computes forces for a structure. The structure is very similar to the <code class="docutils literal notranslate"><span class="pre">OptimizeJob</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">StaticJob</span><span class="p">(</span><span class="n">Maker</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to compute energy and forces for a structure</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name</span>
+<span class="sd">        Name of the job.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;EMT-StaticRun&quot;</span>
+
+    <span class="nd">@job</span>
+    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">structure</span><span class="p">:</span> <span class="n">Structure</span><span class="p">):</span>
+        <span class="n">adaptor</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span>
+        <span class="n">atoms</span> <span class="o">=</span> <span class="n">adaptor</span><span class="o">.</span><span class="n">get_atoms</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">EMT</span><span class="p">()</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;input_structure&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">structure</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;force&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_forces</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-displaced-structures-job">
+<h3>Create displaced structures (job)<a class="headerlink" href="#create-displaced-structures-job" title="Permalink to this heading">#</a></h3>
+<p>Now, we need to build jobs that will create displacements for the finite displacement method based on an optimized <code class="docutils literal notranslate"><span class="pre">Structure</span></code>, run all static runs and then collect the results.</p>
+<p>Let’s start with the job that creates the displacements. It starts from an optimized structure and one can also define the size of the supercell matrix for the finite displacement approach:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">phonopy</span> <span class="kn">import</span> <span class="n">Phonopy</span>
+<span class="kn">from</span> <span class="nn">phonopy.units</span> <span class="kn">import</span> <span class="n">VaspToTHz</span>
+<span class="kn">from</span> <span class="nn">pymatgen.io.phonopy</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_phonopy_structure</span><span class="p">,</span>
+    <span class="n">get_pmg_structure</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="nd">@job</span>
+<span class="k">def</span> <span class="nf">create_displacements</span><span class="p">(</span><span class="n">structure</span><span class="p">:</span> <span class="n">Structure</span><span class="p">,</span> <span class="n">supercell_matrix</span><span class="p">):</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="n">VaspToTHz</span>  <span class="c1"># we need this conversion factor. We will rely on eV</span>
+    <span class="n">cell</span> <span class="o">=</span> <span class="n">get_phonopy_structure</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>  <span class="c1"># this transforms the structure into a format that phonopy can use</span>
+    <span class="n">phonon</span> <span class="o">=</span> <span class="n">Phonopy</span><span class="p">(</span>
+        <span class="n">cell</span><span class="p">,</span>
+        <span class="n">supercell_matrix</span><span class="p">,</span>  <span class="c1"># we need to compute forces for displaced supercells of our initial structure</span>
+        <span class="n">factor</span><span class="o">=</span><span class="n">factor</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">phonon</span><span class="o">.</span><span class="n">generate_displacements</span><span class="p">()</span>  <span class="c1"># phonopy will generate the displacements</span>
+
+    <span class="n">supercells</span> <span class="o">=</span> <span class="n">phonon</span><span class="o">.</span><span class="n">supercells_with_displacements</span>  <span class="c1"># these are all displaced structures</span>
+
+    <span class="n">displacements</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">icell</span> <span class="ow">in</span> <span class="n">supercells</span><span class="p">:</span>
+        <span class="n">displacements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_pmg_structure</span><span class="p">(</span><span class="n">icell</span><span class="p">))</span>  <span class="c1"># we will collect all structures in a pymatgen structure format</span>
+
+    <span class="k">return</span> <span class="n">displacements</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="start-forces-computations-job">
+<h3>Start forces computations (job)<a class="headerlink" href="#start-forces-computations-job" title="Permalink to this heading">#</a></h3>
+<p>Now, we will generate static jobs for all generated structures. It’s important to remember again that the outputs contain references. You can store the output references in a list or dictionary, but you cannot perform a numerical operation on the outputs before the job has been executed. In the next job, we will be able to resolve the displaced output structures from the previous jobs, but cannot perform any numerical operation on the forces from the static jobs as these computations still have to be performed. This has to be done in an additional job.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@job</span>
+<span class="k">def</span> <span class="nf">run_displacements</span><span class="p">(</span><span class="n">displacements</span><span class="p">):</span>
+    <span class="n">static_maker</span> <span class="o">=</span> <span class="n">StaticJob</span><span class="p">()</span>
+    <span class="n">runs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">forces</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">displacement</span> <span class="ow">in</span> <span class="n">displacements</span><span class="p">:</span>
+        <span class="n">displacement_run</span> <span class="o">=</span> <span class="n">static_maker</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">displacement</span><span class="p">)</span>
+        <span class="n">forces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">displacement_run</span><span class="o">.</span><span class="n">output</span><span class="p">[</span>
+                          <span class="s2">&quot;force&quot;</span><span class="p">])</span>  <span class="c1"># this is possible but you cannot transform the array to a numpy array yet as the static_maker jobs haven&#39;t been run yet!</span>
+        <span class="n">runs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">displacement_run</span><span class="p">)</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;forces&quot;</span><span class="p">:</span> <span class="n">forces</span><span class="p">}</span>  <span class="c1">#we will collect all forces from the runs.</span>
+
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">replace</span><span class="o">=</span><span class="n">Flow</span><span class="p">(</span><span class="n">runs</span><span class="p">,</span> <span class="n">output</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plots-and-summary-job">
+<h3>Plots and Summary (Job)<a class="headerlink" href="#plots-and-summary-job" title="Permalink to this heading">#</a></h3>
+<p>Now, we will write a job that evaluates all results. We again need to recreate the correct phonopy settings. Then, we use the plotting tools from pymatgen to plot the phonon density of states.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymatgen.phonon.plotter</span> <span class="kn">import</span> <span class="n">PhononDosPlotter</span>
+<span class="kn">from</span> <span class="nn">pymatgen.io.phonopy</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_ph_dos</span>
+<span class="p">)</span>
+
+
+<span class="nd">@job</span>
+<span class="k">def</span> <span class="nf">summarize_phonopy_results</span><span class="p">(</span><span class="n">structure</span><span class="p">:</span> <span class="n">Structure</span><span class="p">,</span> <span class="n">forces</span><span class="p">,</span> <span class="n">supercell_matrix</span><span class="p">,</span> <span class="n">kpoints</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]):</span>
+    <span class="n">forces_set</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">force</span> <span class="ow">in</span> <span class="n">forces</span><span class="p">:</span>
+        <span class="n">forces_set</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">force</span><span class="p">))</span>
+
+    <span class="n">factor</span> <span class="o">=</span> <span class="n">VaspToTHz</span>
+    <span class="n">cell</span> <span class="o">=</span> <span class="n">get_phonopy_structure</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
+    <span class="n">phonon</span> <span class="o">=</span> <span class="n">Phonopy</span><span class="p">(</span>
+        <span class="n">cell</span><span class="p">,</span>
+        <span class="n">supercell_matrix</span><span class="p">,</span>
+        <span class="n">factor</span><span class="o">=</span><span class="n">factor</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">phonon</span><span class="o">.</span><span class="n">generate_displacements</span><span class="p">()</span>
+    <span class="n">phonon</span><span class="o">.</span><span class="n">produce_force_constants</span><span class="p">(</span><span class="n">forces</span><span class="o">=</span><span class="n">forces_set</span><span class="p">)</span>
+    <span class="n">phonon</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;phonopy.yaml&quot;</span><span class="p">)</span>
+    <span class="n">phonon</span><span class="o">.</span><span class="n">run_mesh</span><span class="p">(</span><span class="n">kpoints</span><span class="p">)</span>
+    <span class="n">phonon</span><span class="o">.</span><span class="n">run_total_dos</span><span class="p">()</span>
+    <span class="n">phonon</span><span class="o">.</span><span class="n">write_total_dos</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;phonon_dos.yaml&quot;</span><span class="p">)</span>
+    <span class="n">dos</span> <span class="o">=</span> <span class="n">get_ph_dos</span><span class="p">(</span><span class="s2">&quot;phonon_dos.yaml&quot;</span><span class="p">)</span>
+    <span class="n">new_plotter_dos</span> <span class="o">=</span> <span class="n">PhononDosPlotter</span><span class="p">()</span>
+    <span class="n">new_plotter_dos</span><span class="o">.</span><span class="n">add_dos</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;total&quot;</span><span class="p">,</span> <span class="n">dos</span><span class="o">=</span><span class="n">dos</span><span class="p">)</span>
+    <span class="n">new_plotter_dos</span><span class="o">.</span><span class="n">save_plot</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;phonon_dos.eps&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;PhononDOS&quot;</span><span class="p">:</span> <span class="n">dos</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="workflow">
+<h3>Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading">#</a></h3>
+<p>Now we connect the jobs with a structural optimization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow.managers.local</span> <span class="kn">import</span> <span class="n">run_locally</span>
+<span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">Flow</span>
+<span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">bulk</span>
+
+<span class="kn">from</span> <span class="nn">pymatgen.io.ase</span> <span class="kn">import</span> <span class="n">AseAtomsAdaptor</span>
+<span class="kn">from</span> <span class="nn">pymatgen.core.structure</span> <span class="kn">import</span> <span class="n">Structure</span>
+
+<span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;Ag&quot;</span><span class="p">,</span> <span class="s2">&quot;fcc&quot;</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">)</span>
+<span class="n">supercell_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="n">maker_fullopt</span> <span class="o">=</span> <span class="n">OptimizeJob</span><span class="p">()</span>
+<span class="n">job1</span> <span class="o">=</span> <span class="n">maker_fullopt</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">structure</span><span class="p">)</span>
+<span class="n">job2</span> <span class="o">=</span> <span class="n">create_displacements</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">job1</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;optimized_structure&quot;</span><span class="p">],</span> <span class="n">supercell_matrix</span><span class="o">=</span><span class="n">supercell_matrix</span><span class="p">)</span>
+<span class="n">job3</span> <span class="o">=</span> <span class="n">run_displacements</span><span class="p">(</span><span class="n">displacements</span><span class="o">=</span><span class="n">job2</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+<span class="n">job4</span> <span class="o">=</span> <span class="n">summarize_phonopy_results</span><span class="p">(</span><span class="n">structure</span><span class="o">=</span><span class="n">job1</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;optimized_structure&quot;</span><span class="p">],</span> <span class="n">forces</span><span class="o">=</span><span class="n">job3</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;forces&quot;</span><span class="p">],</span>
+                                 <span class="n">supercell_matrix</span><span class="o">=</span><span class="n">supercell_matrix</span><span class="p">)</span>
+<span class="n">flow</span> <span class="o">=</span> <span class="n">Flow</span><span class="p">([</span><span class="n">job1</span><span class="p">,</span> <span class="n">job2</span><span class="p">,</span> <span class="n">job3</span><span class="p">,</span> <span class="n">job4</span><span class="p">],</span> <span class="n">output</span><span class="o">=</span><span class="n">job4</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">run_locally</span><span class="p">(</span><span class="n">flow</span><span class="p">)</span>
+
+<span class="n">new_plotter_dos</span> <span class="o">=</span> <span class="n">PhononDosPlotter</span><span class="p">()</span>
+<span class="n">new_plotter_dos</span><span class="o">.</span><span class="n">add_dos</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;total&quot;</span><span class="p">,</span> <span class="n">dos</span><span class="o">=</span><span class="n">response</span><span class="p">[</span><span class="n">flow</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">uuid</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;PhononDOS&quot;</span><span class="p">])</span>
+<span class="n">new_plotter_dos</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,161 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,164 INFO Starting job - EMT-Optimization (864f4c0d-90bb-4519-943f-84a0d90ca484)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,436 INFO Finished job - EMT-Optimization (864f4c0d-90bb-4519-943f-84a0d90ca484)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,441 INFO Starting job - create_displacements (71138966-36a5-47c0-94cc-0c46dc40e3ed)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,557 INFO Finished job - create_displacements (71138966-36a5-47c0-94cc-0c46dc40e3ed)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,558 INFO Starting job - run_displacements (08ae2eab-db5d-456b-a330-9968312f38cf)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,572 INFO Finished job - run_displacements (08ae2eab-db5d-456b-a330-9968312f38cf)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,577 INFO Starting job - EMT-StaticRun (56b30d4e-6ffd-43c1-bf6b-1293891829bd)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,613 INFO Finished job - EMT-StaticRun (56b30d4e-6ffd-43c1-bf6b-1293891829bd)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,615 INFO Starting job - store_inputs (08ae2eab-db5d-456b-a330-9968312f38cf, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,618 INFO Finished job - store_inputs (08ae2eab-db5d-456b-a330-9968312f38cf, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:41,619 INFO Starting job - summarize_phonopy_results (d7f1c17d-397f-4fa1-9d42-7a4d4782180f)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The PostScript backend does not support transparency; partially transparent artists will be rendered opaque.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:42,540 INFO Finished job - summarize_phonopy_results (d7f1c17d-397f-4fa1-9d42-7a4d4782180f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 16:03:42,541 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<img alt="_images/920b659ab65c6cf08195bf4d82907a4e5c6cc0bd41ac2b9c73e613f3608b10af.png" src="_images/920b659ab65c6cf08195bf4d82907a4e5c6cc0bd41ac2b9c73e613f3608b10af.png" />
+</div>
+</div>
+<p>If you are interested in a full phonon workflow based on DFT, please check out the atomate2 implementation: <a class="reference external" href="https://github.com/materialsproject/atomate2/blob/c2d098a38a41c181be2c483f8adb83db0223b76d/src/atomate2/vasp/flows/phonons.py#L35">phonon workflow in atomate2</a></p>
+</section>
+<section id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Please write a maker for the whole flow</p></li>
+<li><p>Combine this new maker to a larger workflow. This new workflow will include three phonon runs. One will be performed at the fully optimized volume, one at a volume 1% larger, the other one at a volume 1% smaller than the fully optimized volume. This is a typical setting for computing Grüneisen parameters.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jobflow">Jobflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-relevant-software">Install Relevant Software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-to-compute-the-equation-of-state-e-g-to-compute-a-bulk-modulus">Workflow to compute the equation of state (e.g., to compute a bulk modulus)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-computation-work-without-workflow">How does the computation work without workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#effective-medium-theory-emt">Effective Medium Theory (EMT)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#required-job-types">Required job types</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-optimization">Structure optimization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-energies-and-volumes-for-the-equation-of-state">Computing energies and volumes for the equation of state</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-and-evaluating-the-equation-of-state">Plotting and evaluating the equation of state</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-implementation-equation-of-state">Workflow implementation (Equation of State)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-optimization-job">Structural Optimization (Job)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-structures-with-different-volumes-and-start-the-constant-volume-optimizations-job">Create structures with different volumes and start the constant-volume optimizations (job)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-job">Summary Job</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#full-workflow">Full workflow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-of-the-results-with-pydantic">Validation of the results with pydantic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-to-compute-phonons-vibrational-properties-of-crystals">Workflow to compute phonons (vibrational properties of crystals)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-phonopy">Install Phonopy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-structure">Workflow structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-forces-of-displaced-structures">Compute Forces of Displaced Structures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-displaced-structures-job">Create displaced structures (job)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-forces-computations-job">Start forces computations (job)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-and-summary-job">Plots and Summary (Job)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By J. George
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
