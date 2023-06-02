@@ -1,0 +1,9 @@
+# In _config.yml
+title: Advanced Tutorial for Automating Tasks in Computational Materials Science with Jobflow
+author: J. George
+logo: logo.png
+execute:
+  execute_notebooks: force
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
+  binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
