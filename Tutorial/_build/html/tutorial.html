@@ -151,7 +151,6 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">The Tutorial</a></li>
-
 </ul>
 
     </div>
@@ -347,7 +346,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Tutorial</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jobflow">Jobflow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-relevant-software">Install Relevant Software</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-to-compute-the-equation-of-state-e-g-to-compute-a-bulk-modulus">Workflow to compute the equation of state (e.g., to compute a bulk modulus)</a><ul class="nav section-nav flex-column">
@@ -361,19 +359,18 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-implementation-equation-of-state">Workflow implementation (Equation of State)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-optimization-job">Structural Optimization (Job)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phonon-workflow">Phonon workflow</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-structures-with-different-volumes-and-start-the-constant-volume-optimizations-job">Create structures with different volumes and start the constant-volume optimizations (job)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-job">Summary Job</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#full-workflow">Full workflow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-of-the-results-with-pydantic">Validation of the results with pydantic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-to-compute-phonons-vibrational-properties-of-crystals">Workflow to compute phonons (vibrational properties of crystals)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
             </nav>
         </div>
     </div>
@@ -527,22 +524,22 @@ Sites (1)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[0.0, 1.95, 1.95], [1.95, 0.0, 1.95], [1.95, 1.95, 0.0]], calculator=EMT(...))
       Step     Time          Energy         fmax
-BFGS:    0 14:24:32        0.088477        1.5173
+BFGS:    0 15:23:13        0.088477        1.5173
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 14:24:32        0.018361        0.6601
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 15:23:13        0.018361        0.6601
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 14:24:32       -0.000016        0.0864
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 15:23:13       -0.000016        0.0864
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 14:24:32       -0.000365        0.0064
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 15:23:13       -0.000365        0.0064
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 14:24:32       -0.000367        0.0001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 15:23:13       -0.000367        0.0001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    5 14:24:32       -0.000367        0.0000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    5 15:23:13       -0.000367        0.0000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.0317762972959135, 2.3373590085817006e-15, 2.0317762972959117], [2.031776297295913, 2.0317762972959126, 1.2589072243282675e-16]], calculator=EMT(...))
@@ -660,18 +657,18 @@ Cell([[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.03177
 </div>
 </div>
 <p>The result is acceptable for us. You can compare the result from EMT to DFT results here: <a class="reference external" href="https://materialsproject.org/materials/mp-124?chemsys=Ag#equations_of_state">https://materialsproject.org/materials/mp-124?chemsys=Ag#equations_of_state</a> The volume from EMT is different by 1 Angstrom³ and Bulk modulus from eMT is off by a factor of 10 depending on the equation of state.</p>
-<p>We now have a workflow that starts with full structural optimization. After the structural optimization, several structural optimizations with constant volume can be started. They are independent of each other and could run in parallel. At the very end, energies and volumes from these constant-volume optimizations are collected and the equation of state is fitted. An illustration of the workflow follows.</p>
+<p>We now have a workflow that starts with full structural optimization. After the structural optimization, structures with different volumes have to be created. Then, several structural optimizations with constant volume can be started. They are independent of each other and could run in parallel. At the very end, energies and volumes from these constant-volume optimizations are collected and the equation of state is fitted. An illustration of the workflow follows.</p>
 <p><img alt="Workflow" src="_images/workflow.png" /></p>
 </section>
 </section>
 <section id="workflow-implementation-equation-of-state">
 <h3>Workflow implementation (Equation of State)<a class="headerlink" href="#workflow-implementation-equation-of-state" title="Permalink to this heading">#</a></h3>
-<p>Jobflow implements <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects that are connected to a <code class="docutils literal notranslate"><span class="pre">Flow</span></code>. We typically use the <code class="docutils literal notranslate"><span class="pre">M̀aker</span></code> class from Jobflow to create jobs and flows. <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/4-generalized-makers.html">There is also a tutorial on how to write a Maker.</a>. A <code class="docutils literal notranslate"><span class="pre">Job</span></code> is an entity that can be executed independently. We therefore have three different job types to write for the workflow above: a full structural optimization, a structural optimization with the constraint of constant volume and a job that plots and summarizes the results for the database. As the full structural optimization and the structural optimization with the constraint of constant volume are so similar, we will write a combined class inheriting from <code class="docutils literal notranslate"><span class="pre">M̀aker</span></code> class to create these jobs.</p>
+<p>Jobflow implements <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects that are connected to a <code class="docutils literal notranslate"><span class="pre">Flow</span></code>. We typically use the <code class="docutils literal notranslate"><span class="pre">M̀aker</span></code> class from Jobflow to create jobs and flows. <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/4-generalized-makers.html">There is also a tutorial on how to write a Maker.</a>. A <code class="docutils literal notranslate"><span class="pre">Job</span></code> is an entity that can be executed independently. We therefore have four different job types to write for the workflow above: a full structural optimization, a job to create structures with different volumes, a structural optimization with the constraint of constant volume, and a job that plots and summarizes the results for the database. As the full structural optimization and the structural optimization with the constraint of constant volume are so similar, we will write a combined class inheriting from <code class="docutils literal notranslate"><span class="pre">M̀aker</span></code> class to create these jobs.</p>
 <section id="structural-optimization-job">
 <h4>Structural Optimization (Job)<a class="headerlink" href="#structural-optimization-job" title="Permalink to this heading">#</a></h4>
-<p>Let’s work on an atomic job to optimize the structure. We will use a <code class="docutils literal notranslate"><span class="pre">Structure</span></code> object to carry the structural information as it can be easily transformed into a dict. We need this as we will save our results in databases that build upon the json and yaml format. This is more complicated for an <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object. Check out <span class="xref myst">https://materialsproject.github.io/maggma/concepts</span> to learn more.</p>
-<p>To write an atomic job in jobflow, we have to inherit from the Maker class and adapt the make method. Please don’t forget the decorators as they are central for the execution of the workflow. You can find more about jobs here: <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/3-defining-jobs.html">https://materialsproject.github.io/jobflow/tutorials/3-defining-jobs.html</a>
-Such a Maker class will also get the decorator &#64;dataclass . This will add special methods to the class. See here for more info: <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a></p>
+<p>Let’s work on an atomic job to optimize the structure. We will use a <code class="docutils literal notranslate"><span class="pre">Structure</span></code> object to carry the structural information as it can be easily transformed into json. We need the json format as we will save our results in databases that build upon the json format. Serialization is more complicated for an <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> object. Check out <span class="xref myst">https://materialsproject.github.io/maggma/concepts</span> to learn more.</p>
+<p>To write an atomic job in jobflow, we have to inherit from the <code class="docutils literal notranslate"><span class="pre">Maker</span></code> class and adapt the <code class="docutils literal notranslate"><span class="pre">make</span></code> method. You can find more about jobs here: <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/3-defining-jobs.html">https://materialsproject.github.io/jobflow/tutorials/3-defining-jobs.html</a>. Please don’t forget to add the decorators (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code>) as they are central for the execution of the workflow.  The decorator <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code> will add special methods to the class. See here for more info: <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a></p>
+<p>Let’s import <code class="docutils literal notranslate"><span class="pre">M̀aker</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow.core.maker</span> <span class="kn">import</span> <span class="n">Maker</span>
@@ -685,7 +682,7 @@ Such a Maker class will also get the decorator &#64;dataclass . This will add sp
 </div>
 </div>
 </div>
-<p>We add a <code class="docutils literal notranslate"><span class="pre">name</span></code> to the maker which will later on help us identify which job is running.</p>
+<p>We will write a job <code class="docutils literal notranslate"><span class="pre">OptimizeJob</span></code> which inherits from <code class="docutils literal notranslate"><span class="pre">Maker</span></code> and implement the <code class="docutils literal notranslate"><span class="pre">make</span></code> method. We add a <code class="docutils literal notranslate"><span class="pre">name</span></code> to the maker which will later on help us identify which job is running. The <code class="docutils literal notranslate"><span class="pre">make</span></code> method will take structure as an input.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
@@ -712,7 +709,7 @@ Such a Maker class will also get the decorator &#64;dataclass . This will add sp
 </div>
 </div>
 </div>
-<p>The make method will take structure as an input. In the next step, we simply add steps to perform the optimization. Thus, we take the same classes, methods and functions as before:</p>
+<p>In the next step, we simply add steps to perform the optimization. Thus, we take the same classes, methods and functions as before:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
@@ -744,7 +741,7 @@ Such a Maker class will also get the decorator &#64;dataclass . This will add sp
 </div>
 </div>
 </div>
-<p>We have now optimized our structure. We might want to add <code class="docutils literal notranslate"><span class="pre">fmax</span></code> as a parameter of our Maker to change the default values. We will not do this for all potential settings as it just takes a lot of time to implement and we just want to find out how it works and not do a lot of work…</p>
+<p>We have now built a Maker to optimize our structure. We might want to add <code class="docutils literal notranslate"><span class="pre">fmax</span></code> as a parameter of our <code class="docutils literal notranslate"><span class="pre">Maker</span></code> to change the default values. We will not do this for all potential settings as it just takes a lot of time to implement… It’s possible to summarize such settings within one dict, e.g. called <code class="docutils literal notranslate"><span class="pre">optimize_kwargs</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
@@ -767,22 +764,14 @@ Such a Maker class will also get the decorator &#64;dataclass . This will add sp
         <span class="n">adaptor</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span>
         <span class="n">atoms</span> <span class="o">=</span> <span class="n">adaptor</span><span class="o">.</span><span class="n">get_atoms</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
         <span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">EMT</span><span class="p">()</span>
-        <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">atoms</span><span class="p">),</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;./optimization.log&quot;</span><span class="p">))</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">atoms</span><span class="p">),</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;./optimization.log&quot;</span><span class="p">)</span>
         <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmax</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">21</span>
-    <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">atoms</span><span class="p">),</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;./optimization.log&quot;</span><span class="p">))</span>
-                                                                  <span class="o">^</span>
-<span class="ne">SyntaxError</span>: unmatched &#39;)&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <p>We will add another parameter <code class="docutils literal notranslate"><span class="pre">constant_volume</span></code> to be able to do a constant volume optimization with the same maker.</p>
-<p>To be able to connect different interdependent jobs, we also need to save our results (method should return the results we want to use further down the line) so that we can transfer our results between jobs. We will do this in next step. For now, it will be enough to save the optimized structure and the energy at the end. You can also save forces, stresses and so on… People typically develop very large schema. This is again just a lot of work and will not help us to understand the automation itself. It’s again just important that all outputs are either a dict or have the as_dict() method.</p>
+<p>To be able to connect different interdependent jobs, we also need to save our results (method should return the results we want to use further down the line) so that we can transfer our results between jobs.  For now, it will be enough to save the optimized structure and the energy at the end. You can also save forces, stresses and so on… Typically, a schema based on <a class="reference external" href="https://docs.pydantic.dev/latest/">Pydantic</a> is developed to save the results. This is again just a lot of work and will not help us to understand the automation itself. It’s again just important that all outputs can be serialized to a json.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
@@ -808,7 +797,7 @@ Such a Maker class will also get the decorator &#64;dataclass . This will add sp
         <span class="n">adaptor</span> <span class="o">=</span> <span class="n">AseAtomsAdaptor</span><span class="p">()</span>
         <span class="n">atoms</span> <span class="o">=</span> <span class="n">adaptor</span><span class="o">.</span><span class="n">get_atoms</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
         <span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">EMT</span><span class="p">()</span>
-        <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">constant_volume</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">constant_volume</span><span class="p">),</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;./optimization.log&quot;</span><span class="p">))</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ExpCellFilter</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">constant_volume</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">constant_volume</span><span class="p">),</span> <span class="n">logfile</span><span class="o">=</span><span class="s2">&quot;./optimization.log&quot;</span><span class="p">)</span>
         <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmax</span><span class="p">)</span>
 
         <span class="n">out_structure</span> <span class="o">=</span> <span class="n">adaptor</span><span class="o">.</span><span class="n">get_structure</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
@@ -822,7 +811,7 @@ Such a Maker class will also get the decorator &#64;dataclass . This will add sp
 </div>
 </div>
 </div>
-<p>For test purposes, we will simply now chain two optimizations, put them in a Flow (i.e., the object for workflows) and see what happens. We also always have to define an output for the flow. Very often, this is the output of the last job in the flow.</p>
+<p>For test purposes, we will simply now chain two optimizations, put them in a Flow (i.e., the object for workflows) and see what happens. We also always have to define an output for the flow. Very often, this is the output of the last job in the flow. We will use <code class="docutils literal notranslate"><span class="pre">run_locally</span></code> to execute the jobs locally. atomate2 has tutorials on how to <a class="reference external" href="https://materialsproject.github.io/atomate2/user/fireworks.html">transfer such jobs to Fireworks</a> or <a class="reference external" href="https://materialsproject.github.io/atomate2/user/running-workflows.html">how to run them with a job script</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow.managers.local</span> <span class="kn">import</span> <span class="n">run_locally</span>
@@ -843,21 +832,25 @@ Such a Maker class will also get the decorator &#64;dataclass . This will add sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 13:24:50,308 INFO Started executing jobs locally
-2023-06-02 13:24:50,314 INFO Starting job - EMT-Optimization (0388d02c-3a91-4fc7-aeef-fc950db4fc18)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50        0.011870        0.5285
-BFGS:    1 13:24:50        0.002888        0.2672
-BFGS:    2 13:24:50       -0.000355        0.0156
-BFGS:    3 13:24:50       -0.000367        0.0005
-BFGS:    4 13:24:50       -0.000367        0.0000
-2023-06-02 13:24:50,455 INFO Finished job - EMT-Optimization (0388d02c-3a91-4fc7-aeef-fc950db4fc18)
-2023-06-02 13:24:50,457 INFO Starting job - EMT-Optimization (9066b47e-e220-4e37-ba08-559b64e540bd)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50       -0.000367        0.0000
-2023-06-02 13:24:50,498 INFO Finished job - EMT-Optimization (9066b47e-e220-4e37-ba08-559b64e540bd)
-2023-06-02 13:24:50,500 INFO Finished executing jobs locally
-{&#39;0388d02c-3a91-4fc7-aeef-fc950db4fc18&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:14,699 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:14,968 INFO Starting job - EMT-Optimization (c86cb922-87a4-4100-8ffd-deb4697ff774)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,100 INFO Finished job - EMT-Optimization (c86cb922-87a4-4100-8ffd-deb4697ff774)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,102 INFO Starting job - EMT-Optimization (fd6005ff-d243-48e7-a2d9-d6a175b76d37)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,174 INFO Finished job - EMT-Optimization (fd6005ff-d243-48e7-a2d9-d6a175b76d37)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,175 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;c86cb922-87a4-4100-8ffd-deb4697ff774&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
 Lattice
     abc : 2.87336550651202 2.8733655065120205 2.87336550651202
  angles : 59.99999999999999 60.00000000000001 59.99999999999999
@@ -875,7 +868,7 @@ Lattice
       B : 2.0 0.0 2.0
       C : 2.0 2.0 0.0
     pbc : True True True
-PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&#39;: -0.000366862539422641}, detour=None, addition=None, replace=None, stored_data=None, stop_children=False, stop_jobflow=False)}, &#39;9066b47e-e220-4e37-ba08-559b64e540bd&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
+PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&#39;: -0.000366862539422641}, detour=None, addition=None, replace=None, stored_data=None, stop_children=False, stop_jobflow=False)}, &#39;fd6005ff-d243-48e7-a2d9-d6a175b76d37&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
 Lattice
     abc : 2.87336550651202 2.8733655065120205 2.87336550651202
  angles : 59.99999999999999 60.00000000000001 59.99999999999999
@@ -898,9 +891,12 @@ PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&
 </div>
 </div>
 </div>
-<p>This is nice but of course a bit useless. Btw, you can also create folders for each atomic job in your workflow by using one of the parameters in run_locally.</p>
-<p>We now need to build a job that creates structures with different volumes, runs the optimizations with constant volume, and one job that can assess the results!</p>
-<p>We will start by using a job that is called <code class="docutils literal notranslate"><span class="pre">get_ev_curve</span></code>. It will replace itself with a Response object that will start a completely new workflow. As outputs, we will collect all optimized structures and the corresponding energies!</p>
+<p>As you can see, this works. Of course, this is not very useful here but could be useful, for example, for DFT optimizations, where typically at least two full structural optimizations have to be started. Btw, you can also create folders for each atomic job in your workflow by using the parameter <code class="docutils literal notranslate"><span class="pre">create_folders</span></code> from <code class="docutils literal notranslate"><span class="pre">run_locally</span></code>.</p>
+</section>
+<section id="create-structures-with-different-volumes-and-start-the-constant-volume-optimizations-job">
+<h4>Create structures with different volumes and start the constant-volume optimizations (job)<a class="headerlink" href="#create-structures-with-different-volumes-and-start-the-constant-volume-optimizations-job" title="Permalink to this heading">#</a></h4>
+<p>We now need to build a job that creates structures with different volumes and starts the optimizations with constant volume.</p>
+<p>We will start by using a job that is called <code class="docutils literal notranslate"><span class="pre">get_ev_curve</span></code>. It will replace itself with a <code class="docutils literal notranslate"><span class="pre">Response</span></code> object that will start a completely new flow or job. As outputs, we will collect all optimized structures and the corresponding energies! We will reuse our maker <code class="docutils literal notranslate"><span class="pre">OptimizeJob</span></code> from above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">Response</span><span class="p">,</span> <span class="n">job</span>
@@ -927,7 +923,7 @@ PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&
 </div>
 </div>
 </div>
-<p>We can now build a flow including a full optmization and this code to start the constant volume optimizations</p>
+<p>We can now build a flow including the full optimization and the job to change the volumes and start the constant-volume optimizations. We need to transfer the optimized structure to the second job. Please remember that <code class="docutils literal notranslate"><span class="pre">job1.output[&quot;optimized_structure&quot;]</span></code> is a reference to the future output. It can only be accessed if the job has been already executed. You cannot access this output while generating the flow for the first time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;Ag&quot;</span><span class="p">,</span> <span class="s2">&quot;fcc&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -944,53 +940,78 @@ PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 13:24:50,529 INFO Started executing jobs locally
-2023-06-02 13:24:50,533 INFO Starting job - EMT-Optimization (3c4c87fa-0ebf-4c64-8e66-48297823c632)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50        0.011870        0.5285
-BFGS:    1 13:24:50        0.002888        0.2672
-BFGS:    2 13:24:50       -0.000355        0.0156
-BFGS:    3 13:24:50       -0.000367        0.0005
-BFGS:    4 13:24:50       -0.000367        0.0000
-2023-06-02 13:24:50,654 INFO Finished job - EMT-Optimization (3c4c87fa-0ebf-4c64-8e66-48297823c632)
-2023-06-02 13:24:50,655 INFO Starting job - get_ev_curve (e907babd-6a0d-44be-b40d-fd6665b2f813)
-2023-06-02 13:24:50,677 INFO Finished job - get_ev_curve (e907babd-6a0d-44be-b40d-fd6665b2f813)
-2023-06-02 13:24:50,683 INFO Starting job - EMT-Optimization (5bd11cb6-bf29-43cc-b4ac-39c0934e7c38)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50        0.014081        0.0000
-2023-06-02 13:24:50,714 INFO Finished job - EMT-Optimization (5bd11cb6-bf29-43cc-b4ac-39c0934e7c38)
-2023-06-02 13:24:50,715 INFO Starting job - EMT-Optimization (cc83e26d-1d53-4aa4-8029-d593d6db34d0)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50        0.004634        0.0000
-2023-06-02 13:24:50,743 INFO Finished job - EMT-Optimization (cc83e26d-1d53-4aa4-8029-d593d6db34d0)
-2023-06-02 13:24:50,744 INFO Starting job - EMT-Optimization (029827d8-499d-47c6-8824-261357da438a)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50        0.000168        0.0000
-2023-06-02 13:24:50,773 INFO Finished job - EMT-Optimization (029827d8-499d-47c6-8824-261357da438a)
-2023-06-02 13:24:50,774 INFO Starting job - EMT-Optimization (3f4bd3b8-2cca-42d6-b603-008737fc9edf)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50       -0.000367        0.0000
-2023-06-02 13:24:50,804 INFO Finished job - EMT-Optimization (3f4bd3b8-2cca-42d6-b603-008737fc9edf)
-2023-06-02 13:24:50,805 INFO Starting job - EMT-Optimization (702a9c51-e989-4993-bf1d-a25644a33dd5)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50        0.000148        0.0000
-2023-06-02 13:24:50,834 INFO Finished job - EMT-Optimization (702a9c51-e989-4993-bf1d-a25644a33dd5)
-2023-06-02 13:24:50,835 INFO Starting job - EMT-Optimization (51f776ef-342c-4737-a4f0-47e060157eaf)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50        0.004093        0.0000
-2023-06-02 13:24:50,866 INFO Finished job - EMT-Optimization (51f776ef-342c-4737-a4f0-47e060157eaf)
-2023-06-02 13:24:50,867 INFO Starting job - EMT-Optimization (a09e0c31-5d96-4f6f-9001-4011d1c6918d)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50        0.011572        0.0000
-2023-06-02 13:24:50,899 INFO Finished job - EMT-Optimization (a09e0c31-5d96-4f6f-9001-4011d1c6918d)
-2023-06-02 13:24:50,900 INFO Starting job - store_inputs (e907babd-6a0d-44be-b40d-fd6665b2f813, 2)
-2023-06-02 13:24:50,904 INFO Finished job - store_inputs (e907babd-6a0d-44be-b40d-fd6665b2f813, 2)
-2023-06-02 13:24:50,905 INFO Finished executing jobs locally
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,202 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,205 INFO Starting job - EMT-Optimization (ea148976-a86b-40fa-9cae-b86532eefabe)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,319 INFO Finished job - EMT-Optimization (ea148976-a86b-40fa-9cae-b86532eefabe)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,333 INFO Starting job - get_ev_curve (4c3e5467-4a4a-4fe3-863f-85ed48f871aa)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,368 INFO Finished job - get_ev_curve (4c3e5467-4a4a-4fe3-863f-85ed48f871aa)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,375 INFO Starting job - EMT-Optimization (bc2de827-c6f8-49c6-8685-adbff3c552c1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,416 INFO Finished job - EMT-Optimization (bc2de827-c6f8-49c6-8685-adbff3c552c1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,417 INFO Starting job - EMT-Optimization (1f890540-73ca-4546-8a9f-f8719bab2c0c)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,447 INFO Finished job - EMT-Optimization (1f890540-73ca-4546-8a9f-f8719bab2c0c)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,449 INFO Starting job - EMT-Optimization (108fef49-4737-43ef-be12-515c31bf6664)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,479 INFO Finished job - EMT-Optimization (108fef49-4737-43ef-be12-515c31bf6664)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,480 INFO Starting job - EMT-Optimization (64b272fc-86f3-4051-9075-fada68be0469)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,511 INFO Finished job - EMT-Optimization (64b272fc-86f3-4051-9075-fada68be0469)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,513 INFO Starting job - EMT-Optimization (b02ea613-f323-48de-a378-3da2ae973cf7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,545 INFO Finished job - EMT-Optimization (b02ea613-f323-48de-a378-3da2ae973cf7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,546 INFO Starting job - EMT-Optimization (b4be5ec0-2010-4875-8c37-f4d07a4965ee)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,576 INFO Finished job - EMT-Optimization (b4be5ec0-2010-4875-8c37-f4d07a4965ee)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,577 INFO Starting job - EMT-Optimization (52821ba5-482c-4cb8-8a41-c7a5adc7cc5d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,608 INFO Finished job - EMT-Optimization (52821ba5-482c-4cb8-8a41-c7a5adc7cc5d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,610 INFO Starting job - store_inputs (4c3e5467-4a4a-4fe3-863f-85ed48f871aa, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,615 INFO Finished job - store_inputs (4c3e5467-4a4a-4fe3-863f-85ed48f871aa, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,616 INFO Finished executing jobs locally
 </pre></div>
 </div>
 </div>
 </div>
-<p>We will now write a tiny job that will collect all results. It will start from a list of structures and energies and then plot an EV curve to a file and return the most important results.</p>
+</section>
+<section id="summary-job">
+<h4>Summary Job<a class="headerlink" href="#summary-job" title="Permalink to this heading">#</a></h4>
+<p>We will now write a job <code class="docutils literal notranslate"><span class="pre">get_results_ev_curve</span></code> that will collect all results, make plots and store the information in a database. It will start from a list of structures and energies and then plot an EV curve to a file and return the most important results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@job</span>
@@ -1013,7 +1034,10 @@ BFGS:    0 13:24:50        0.011572        0.0000
 </div>
 </div>
 </div>
-<p>Now, we combine all jobs to a larger workflow and check out the output.</p>
+</section>
+<section id="full-workflow">
+<h4>Full workflow<a class="headerlink" href="#full-workflow" title="Permalink to this heading">#</a></h4>
+<p>Now, we combine all jobs to a larger workflow and check out the output. To do so, we will need a universally unique identifier (uuid). In our case, this will be te one of the last job. Again, we also need to transfer all information between the jobs correctly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;Ag&quot;</span><span class="p">,</span> <span class="s2">&quot;fcc&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -1030,57 +1054,88 @@ BFGS:    0 13:24:50        0.011572        0.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 13:24:50,928 INFO Started executing jobs locally
-2023-06-02 13:24:50,931 INFO Starting job - EMT-Optimization (902be8d9-fe88-4c7a-a3e2-6c64835df876)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:50        0.011870        0.5285
-BFGS:    1 13:24:50        0.002888        0.2672
-BFGS:    2 13:24:50       -0.000355        0.0156
-BFGS:    3 13:24:51       -0.000367        0.0005
-BFGS:    4 13:24:51       -0.000367        0.0000
-2023-06-02 13:24:51,051 INFO Finished job - EMT-Optimization (902be8d9-fe88-4c7a-a3e2-6c64835df876)
-2023-06-02 13:24:51,052 INFO Starting job - get_ev_curve (2bf03059-560a-4209-a7d3-f1d2b1efd942)
-2023-06-02 13:24:51,071 INFO Finished job - get_ev_curve (2bf03059-560a-4209-a7d3-f1d2b1efd942)
-2023-06-02 13:24:51,077 INFO Starting job - EMT-Optimization (11f543b8-f243-4819-bfa5-39c0c3e50eea)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.014081        0.0000
-2023-06-02 13:24:51,106 INFO Finished job - EMT-Optimization (11f543b8-f243-4819-bfa5-39c0c3e50eea)
-2023-06-02 13:24:51,107 INFO Starting job - EMT-Optimization (e68c109b-f78f-4fa3-8cce-2238637e4c88)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.004634        0.0000
-2023-06-02 13:24:51,137 INFO Finished job - EMT-Optimization (e68c109b-f78f-4fa3-8cce-2238637e4c88)
-2023-06-02 13:24:51,138 INFO Starting job - EMT-Optimization (214ca90c-ee9d-4c07-9453-24e2d552e0ca)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.000168        0.0000
-2023-06-02 13:24:51,171 INFO Finished job - EMT-Optimization (214ca90c-ee9d-4c07-9453-24e2d552e0ca)
-2023-06-02 13:24:51,172 INFO Starting job - EMT-Optimization (21e1ed61-e1b0-4fca-88b9-f52506ba7bfe)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51       -0.000367        0.0000
-2023-06-02 13:24:51,202 INFO Finished job - EMT-Optimization (21e1ed61-e1b0-4fca-88b9-f52506ba7bfe)
-2023-06-02 13:24:51,203 INFO Starting job - EMT-Optimization (431bbe49-3ef2-4741-8ebd-4c5d154fa600)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.000148        0.0000
-2023-06-02 13:24:51,232 INFO Finished job - EMT-Optimization (431bbe49-3ef2-4741-8ebd-4c5d154fa600)
-2023-06-02 13:24:51,233 INFO Starting job - EMT-Optimization (c8530f87-25c5-4bd7-8082-2b222dad7bea)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.004093        0.0000
-2023-06-02 13:24:51,262 INFO Finished job - EMT-Optimization (c8530f87-25c5-4bd7-8082-2b222dad7bea)
-2023-06-02 13:24:51,263 INFO Starting job - EMT-Optimization (42fd467a-a9d8-4413-a948-2b8d0020c735)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.011572        0.0000
-2023-06-02 13:24:51,292 INFO Finished job - EMT-Optimization (42fd467a-a9d8-4413-a948-2b8d0020c735)
-2023-06-02 13:24:51,294 INFO Starting job - store_inputs (2bf03059-560a-4209-a7d3-f1d2b1efd942, 2)
-2023-06-02 13:24:51,299 INFO Finished job - store_inputs (2bf03059-560a-4209-a7d3-f1d2b1efd942, 2)
-2023-06-02 13:24:51,299 INFO Starting job - get_results_ev_curve (b69a4221-0d9d-4c89-a53c-c7d8820734f4)
-2023-06-02 13:24:51,508 INFO Finished job - get_results_ev_curve (b69a4221-0d9d-4c89-a53c-c7d8820734f4)
-2023-06-02 13:24:51,512 INFO Finished executing jobs locally
-{&#39;V0&#39;: 16.7748202620472, &#39;e0&#39;: -0.00036673834964062735, &#39;B&#39;: 0.6250761058809655}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,662 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,666 INFO Starting job - EMT-Optimization (f620d861-aa15-401e-8dc6-0e53d0637bc6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,787 INFO Finished job - EMT-Optimization (f620d861-aa15-401e-8dc6-0e53d0637bc6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,788 INFO Starting job - get_ev_curve (1f440300-a03a-421c-b9b0-b4aba66838c3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,810 INFO Finished job - get_ev_curve (1f440300-a03a-421c-b9b0-b4aba66838c3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,817 INFO Starting job - EMT-Optimization (102b3c9a-163f-4a35-bef3-dffc67b98670)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,847 INFO Finished job - EMT-Optimization (102b3c9a-163f-4a35-bef3-dffc67b98670)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,848 INFO Starting job - EMT-Optimization (75d96c15-4345-4544-a1b5-e44bca346721)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,880 INFO Finished job - EMT-Optimization (75d96c15-4345-4544-a1b5-e44bca346721)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,881 INFO Starting job - EMT-Optimization (8efeffcf-59a0-4878-aca2-75eb38df6a2b)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,910 INFO Finished job - EMT-Optimization (8efeffcf-59a0-4878-aca2-75eb38df6a2b)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,912 INFO Starting job - EMT-Optimization (4fe21d2f-f314-480c-8d0a-da6ace8255b4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,941 INFO Finished job - EMT-Optimization (4fe21d2f-f314-480c-8d0a-da6ace8255b4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,943 INFO Starting job - EMT-Optimization (50efa534-cb2d-481b-8000-de8e9b10cbab)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,972 INFO Finished job - EMT-Optimization (50efa534-cb2d-481b-8000-de8e9b10cbab)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:15,974 INFO Starting job - EMT-Optimization (f9b4873c-e8f7-4e68-a0c7-daa524f4438d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,006 INFO Finished job - EMT-Optimization (f9b4873c-e8f7-4e68-a0c7-daa524f4438d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,007 INFO Starting job - EMT-Optimization (e68ebe13-e976-497b-a120-d58a51596e53)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,037 INFO Finished job - EMT-Optimization (e68ebe13-e976-497b-a120-d58a51596e53)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,038 INFO Starting job - store_inputs (1f440300-a03a-421c-b9b0-b4aba66838c3, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,043 INFO Finished job - store_inputs (1f440300-a03a-421c-b9b0-b4aba66838c3, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,044 INFO Starting job - get_results_ev_curve (413b93c3-52f5-4bd9-a3bc-df28b4466d2c)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,266 INFO Finished job - get_results_ev_curve (413b93c3-52f5-4bd9-a3bc-df28b4466d2c)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,267 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;V0&#39;: 16.7748202620472, &#39;e0&#39;: -0.00036673834964062735, &#39;B&#39;: 0.6250761058809655}
 </pre></div>
 </div>
 <img alt="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" src="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" />
 </div>
 </div>
 <p>It works. We get the same results!</p>
+</section>
+<section id="validation-of-the-results-with-pydantic">
+<h4>Validation of the results with pydantic<a class="headerlink" href="#validation-of-the-results-with-pydantic" title="Permalink to this heading">#</a></h4>
 <p>I will just show you now how to validate your data with a <a class="reference external" href="https://docs.pydantic.dev">pydantic</a> schema. This allows to describe your outputs and make sure that you also get all relevant data in the right format. Again, this is only one tiny example. In practice, you would add many more options! This is how such a schema can look in practice: <a class="github reference external" href="https://github.com/materialsproject/atomate2/blob/main/src/atomate2/lobster/schemas.py">materialsproject/atomate2</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1117,7 +1172,7 @@ BFGS:    0 13:24:51        0.011572        0.0000
 </div>
 </div>
 </div>
-<p>Let’s run the workflow again.</p>
+<p>We will add this now to the workflow and run it again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s2">&quot;Ag&quot;</span><span class="p">,</span> <span class="s2">&quot;fcc&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -1134,70 +1189,99 @@ BFGS:    0 13:24:51        0.011572        0.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 13:24:51,759 INFO Started executing jobs locally
-2023-06-02 13:24:51,762 INFO Starting job - EMT-Optimization (bde7ff31-e743-4fde-8b55-431fd8130ba8)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.011870        0.5285
-BFGS:    1 13:24:51        0.002888        0.2672
-BFGS:    2 13:24:51       -0.000355        0.0156
-BFGS:    3 13:24:51       -0.000367        0.0005
-BFGS:    4 13:24:51       -0.000367        0.0000
-2023-06-02 13:24:51,877 INFO Finished job - EMT-Optimization (bde7ff31-e743-4fde-8b55-431fd8130ba8)
-2023-06-02 13:24:51,878 INFO Starting job - get_ev_curve (061181b0-7e65-404e-855f-dc44b035dece)
-2023-06-02 13:24:51,897 INFO Finished job - get_ev_curve (061181b0-7e65-404e-855f-dc44b035dece)
-2023-06-02 13:24:51,904 INFO Starting job - EMT-Optimization (3f235e16-1e4f-47df-abf8-8b4c17cf47cc)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.014081        0.0000
-2023-06-02 13:24:51,932 INFO Finished job - EMT-Optimization (3f235e16-1e4f-47df-abf8-8b4c17cf47cc)
-2023-06-02 13:24:51,933 INFO Starting job - EMT-Optimization (738efd80-5eb1-488c-b220-a090024d6ea7)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.004634        0.0000
-2023-06-02 13:24:51,963 INFO Finished job - EMT-Optimization (738efd80-5eb1-488c-b220-a090024d6ea7)
-2023-06-02 13:24:51,964 INFO Starting job - EMT-Optimization (be753678-1076-47c2-912d-94063fed6057)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:51        0.000168        0.0000
-2023-06-02 13:24:51,995 INFO Finished job - EMT-Optimization (be753678-1076-47c2-912d-94063fed6057)
-2023-06-02 13:24:51,997 INFO Starting job - EMT-Optimization (b9f2efd5-1454-47e6-af90-9d73761280d7)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:52       -0.000367        0.0000
-2023-06-02 13:24:52,025 INFO Finished job - EMT-Optimization (b9f2efd5-1454-47e6-af90-9d73761280d7)
-2023-06-02 13:24:52,026 INFO Starting job - EMT-Optimization (076a2ce1-50bb-4a23-b7a9-cb432c5e01f3)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:52        0.000148        0.0000
-2023-06-02 13:24:52,053 INFO Finished job - EMT-Optimization (076a2ce1-50bb-4a23-b7a9-cb432c5e01f3)
-2023-06-02 13:24:52,054 INFO Starting job - EMT-Optimization (ebb4e6ee-d759-48c1-92d9-afc1c05dc47e)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:52        0.004093        0.0000
-2023-06-02 13:24:52,082 INFO Finished job - EMT-Optimization (ebb4e6ee-d759-48c1-92d9-afc1c05dc47e)
-2023-06-02 13:24:52,083 INFO Starting job - EMT-Optimization (97f3af43-3b6d-43fb-b0ca-e215f59b0af8)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:52        0.011572        0.0000
-2023-06-02 13:24:52,110 INFO Finished job - EMT-Optimization (97f3af43-3b6d-43fb-b0ca-e215f59b0af8)
-2023-06-02 13:24:52,111 INFO Starting job - store_inputs (061181b0-7e65-404e-855f-dc44b035dece, 2)
-2023-06-02 13:24:52,115 INFO Finished job - store_inputs (061181b0-7e65-404e-855f-dc44b035dece, 2)
-2023-06-02 13:24:52,116 INFO Starting job - get_results_ev_curve (a9889cba-3a45-4952-ac3f-3da992cae56f)
-2023-06-02 13:24:52,325 INFO Finished job - get_results_ev_curve (a9889cba-3a45-4952-ac3f-3da992cae56f)
-2023-06-02 13:24:52,326 INFO Finished executing jobs locally
-V0=16.7748202620472 e0=-0.00036673834964062735 B=0.6250761058809655
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,509 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,515 INFO Starting job - EMT-Optimization (4edac6c7-1df8-4132-9c1c-b413dc471e50)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,627 INFO Finished job - EMT-Optimization (4edac6c7-1df8-4132-9c1c-b413dc471e50)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,629 INFO Starting job - get_ev_curve (44f12764-0a42-4278-bfeb-19d5ed145026)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,649 INFO Finished job - get_ev_curve (44f12764-0a42-4278-bfeb-19d5ed145026)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,655 INFO Starting job - EMT-Optimization (4b4f66bb-8ad7-45da-b08c-3205bf1d92a1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,687 INFO Finished job - EMT-Optimization (4b4f66bb-8ad7-45da-b08c-3205bf1d92a1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,688 INFO Starting job - EMT-Optimization (efd7511d-5d4f-4ad9-b6d7-b1e7d927d4c6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,720 INFO Finished job - EMT-Optimization (efd7511d-5d4f-4ad9-b6d7-b1e7d927d4c6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,722 INFO Starting job - EMT-Optimization (c41e154f-ffc1-479b-a788-136e27c3defb)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,753 INFO Finished job - EMT-Optimization (c41e154f-ffc1-479b-a788-136e27c3defb)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,754 INFO Starting job - EMT-Optimization (8c07cc7d-dc77-48ec-ad03-c35deb0449d7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,784 INFO Finished job - EMT-Optimization (8c07cc7d-dc77-48ec-ad03-c35deb0449d7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,786 INFO Starting job - EMT-Optimization (e9de14e3-a6d6-47fa-911d-2d4f89b1d280)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,815 INFO Finished job - EMT-Optimization (e9de14e3-a6d6-47fa-911d-2d4f89b1d280)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,816 INFO Starting job - EMT-Optimization (9dc75892-5490-4c01-9282-b4ae00a8e113)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,846 INFO Finished job - EMT-Optimization (9dc75892-5490-4c01-9282-b4ae00a8e113)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,847 INFO Starting job - EMT-Optimization (fd21f4ba-d2e7-4c1a-a10a-71fcf4cb53bb)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,876 INFO Finished job - EMT-Optimization (fd21f4ba-d2e7-4c1a-a10a-71fcf4cb53bb)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,877 INFO Starting job - store_inputs (44f12764-0a42-4278-bfeb-19d5ed145026, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,881 INFO Finished job - store_inputs (44f12764-0a42-4278-bfeb-19d5ed145026, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:16,882 INFO Starting job - get_results_ev_curve (02537e85-1955-422a-9451-ee54c2a3721a)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:17,089 INFO Finished job - get_results_ev_curve (02537e85-1955-422a-9451-ee54c2a3721a)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:17,091 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V0=16.7748202620472 e0=-0.00036673834964062735 B=0.6250761058809655
 </pre></div>
 </div>
 <img alt="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" src="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" />
 </div>
 </div>
-<p>You have seen all basic functionalities to write workflows with jobflow. You can also transfer these workflows to <a class="reference external" href="https://materialsproject.github.io/atomate2/user/fireworks.html">Fireworks</a> to run the jobs in parallel and/or on a cluster.</p>
+<p>You have seen all basic functionalities to write workflows with jobflow.</p>
+</section>
+<section id="exercises">
+<h4>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Please build a maker for the whole workflow! You can find an example here: <a class="github reference external" href="https://github.com/materialsproject/atomate2/blob/main/src/atomate2/vasp/flows/lobster.py">materialsproject/atomate2</a></p></li>
+<li><p>Then, use the maker for different structure or elements: e.g., Al or other elements that work with EMT.</p></li>
+</ol>
 </section>
 </section>
-<section id="exercise">
-<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
-<p>Please build a large maker for the whole workflow! You can find an example here: <a class="github reference external" href="https://github.com/materialsproject/atomate2/blob/main/src/atomate2/vasp/flows/lobster.py">materialsproject/atomate2</a></p>
-<p>Then, apply it to different structures and elements: e.g., Al or other elements that work with EMT.</p>
 </section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="phonon-workflow">
-<h1>Phonon workflow<a class="headerlink" href="#phonon-workflow" title="Permalink to this heading">#</a></h1>
-<p>We will now write a tiny workflow to compute phonons with Phonopy. We will only compute phonon densities of states and not band structures as finding relevant points in reciprocal space is possible but a lot of work to implement. If you would like to try this, you are invited to have fun with pymatgen. Again, we will use the EMT calculator to speed up calculations.</p>
-<p>We will compute phonons with the finite differences approach. You can check out this reference in case you are interested: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.200906780">https://onlinelibrary.wiley.com/doi/10.1002/anie.200906780</a>. We will optimize the crystal structure, then generate displaced structures. This will allow to compute force constants for the whole unit cell. Those force constants can then be fouriertransformed to a dynamical matrix that allows us to get frequencies and eigenvalues describing the vibrations in the crystal structure.</p>
+<section id="workflow-to-compute-phonons-vibrational-properties-of-crystals">
+<h2>Workflow to compute phonons (vibrational properties of crystals)<a class="headerlink" href="#workflow-to-compute-phonons-vibrational-properties-of-crystals" title="Permalink to this heading">#</a></h2>
+<p>We will now write a workflow to compute phonons with <a class="reference external" href="https://phonopy.github.io/phonopy/">Phonopy</a>. We will only compute phonon densities of states and not phonon band structures. It is possible to implement this. However, this is significantly more work and does not help you to learn about the automation itself. If you would like to try this, everything needed is implemented in pymatgen but this is really a more advanced task. Again, we will use the EMT calculator to speed up the calculations.</p>
+<p>We will compute phonons with the finite differences approach. You can check out this reference in case you are interested: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.200906780">https://onlinelibrary.wiley.com/doi/10.1002/anie.200906780</a>. We will optimize the crystal structure, then generate displaced structures. This will allow to compute force constants for the whole unit cell. Those force constants can then be fourier-transformed to a dynamical matrix within Phonopy that allows us to get frequencies and eigenvalues describing the vibrations in the crystal structure.</p>
 <p><img alt="workflow for phonons" src="_images/workflow2.png" /></p>
 <p>For phonon runs, we need an additional static job that just returns forces based on the structure. We can reuse the optimization. But first, we will install phonopy. Phonopy will create all displacements that we need according to symmetry and can also do all the annoying computations that are just a pain to reimplement. There are also some modules in ase for phonons but they don’t handle symmetry that well so far!</p>
 <div class="cell docutils container">
@@ -1359,39 +1443,57 @@ V0=16.7748202620472 e0=-0.00036673834964062735 B=0.6250761058809655
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 13:24:55,426 INFO Started executing jobs locally
-2023-06-02 13:24:55,431 INFO Starting job - EMT-Optimization (3922d749-b7ce-4fe3-a151-74620962aa53)
-      Step     Time          Energy         fmax
-BFGS:    0 13:24:55        0.088477        1.5173
-BFGS:    1 13:24:55        0.018361        0.6601
-BFGS:    2 13:24:55       -0.000016        0.0864
-BFGS:    3 13:24:55       -0.000365        0.0064
-BFGS:    4 13:24:55       -0.000367        0.0001
-BFGS:    5 13:24:55       -0.000367        0.0000
-2023-06-02 13:24:55,638 INFO Finished job - EMT-Optimization (3922d749-b7ce-4fe3-a151-74620962aa53)
-2023-06-02 13:24:55,639 INFO Starting job - create_displacements (cd140907-9218-4737-9b96-ec6a981e9a06)
-2023-06-02 13:24:55,743 INFO Finished job - create_displacements (cd140907-9218-4737-9b96-ec6a981e9a06)
-2023-06-02 13:24:55,744 INFO Starting job - run_displacements (38baa312-10f1-4588-b873-247f655853db)
-2023-06-02 13:24:55,757 INFO Finished job - run_displacements (38baa312-10f1-4588-b873-247f655853db)
-2023-06-02 13:24:55,760 INFO Starting job - EMT-StaticRun (280c9c61-8915-41bb-8a8d-1ccac2b1c731)
-2023-06-02 13:24:55,799 INFO Finished job - EMT-StaticRun (280c9c61-8915-41bb-8a8d-1ccac2b1c731)
-2023-06-02 13:24:55,802 INFO Starting job - store_inputs (38baa312-10f1-4588-b873-247f655853db, 2)
-2023-06-02 13:24:55,806 INFO Finished job - store_inputs (38baa312-10f1-4588-b873-247f655853db, 2)
-2023-06-02 13:24:55,807 INFO Starting job - summarize_phonopy_results (e1d064f5-0ae9-4cc6-a1d7-f11149c919de)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:20,592 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:20,595 INFO Starting job - EMT-Optimization (c82baeb9-145c-4737-ac2d-d77531209783)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:20,916 INFO Finished job - EMT-Optimization (c82baeb9-145c-4737-ac2d-d77531209783)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:20,923 INFO Starting job - create_displacements (f3b21a77-92c4-4ff1-ac29-b39d18d4477f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:21,048 INFO Finished job - create_displacements (f3b21a77-92c4-4ff1-ac29-b39d18d4477f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:21,050 INFO Starting job - run_displacements (8a4c45af-b560-4baa-8979-e8f23981b28d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:21,066 INFO Finished job - run_displacements (8a4c45af-b560-4baa-8979-e8f23981b28d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:21,071 INFO Starting job - EMT-StaticRun (1c9ed09d-52a2-4161-ba0e-12cdd2ab55c0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:21,110 INFO Finished job - EMT-StaticRun (1c9ed09d-52a2-4161-ba0e-12cdd2ab55c0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:21,112 INFO Starting job - store_inputs (8a4c45af-b560-4baa-8979-e8f23981b28d, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:21,116 INFO Finished job - store_inputs (8a4c45af-b560-4baa-8979-e8f23981b28d, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:21,117 INFO Starting job - summarize_phonopy_results (d070d2f8-c367-4ee8-883d-0132ef4f9332)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The PostScript backend does not support transparency; partially transparent artists will be rendered opaque.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 13:24:56,206 INFO Finished job - summarize_phonopy_results (e1d064f5-0ae9-4cc6-a1d7-f11149c919de)
-2023-06-02 13:24:56,209 INFO Finished executing jobs locally
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:22,121 INFO Finished job - summarize_phonopy_results (d070d2f8-c367-4ee8-883d-0132ef4f9332)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-02 15:23:22,123 INFO Finished executing jobs locally
 </pre></div>
 </div>
 <img alt="_images/920b659ab65c6cf08195bf4d82907a4e5c6cc0bd41ac2b9c73e613f3608b10af.png" src="_images/920b659ab65c6cf08195bf4d82907a4e5c6cc0bd41ac2b9c73e613f3608b10af.png" />
 </div>
 </div>
-<section id="id1">
-<h2>Exercise<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
 <p>Again, plug the flow into a maker. Then, build an even larger maker including 3 phonon runs at the optimized volume, one with a volume that is 1% smaller and one with a volume that is 1% larger. This is a typical setting to compute Grüneisen parameters.</p>
 </section>
 </section>
@@ -1454,7 +1556,6 @@ BFGS:    5 13:24:55       -0.000367        0.0000
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Tutorial</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jobflow">Jobflow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-relevant-software">Install Relevant Software</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-to-compute-the-equation-of-state-e-g-to-compute-a-bulk-modulus">Workflow to compute the equation of state (e.g., to compute a bulk modulus)</a><ul class="nav section-nav flex-column">
@@ -1468,19 +1569,18 @@ BFGS:    5 13:24:55       -0.000367        0.0000
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-implementation-equation-of-state">Workflow implementation (Equation of State)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-optimization-job">Structural Optimization (Job)</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phonon-workflow">Phonon workflow</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-structures-with-different-volumes-and-start-the-constant-volume-optimizations-job">Create structures with different volumes and start the constant-volume optimizations (job)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-job">Summary Job</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#full-workflow">Full workflow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-of-the-results-with-pydantic">Validation of the results with pydantic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-to-compute-phonons-vibrational-properties-of-crystals">Workflow to compute phonons (vibrational properties of crystals)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
   </nav></div>
 
 </div></div>
