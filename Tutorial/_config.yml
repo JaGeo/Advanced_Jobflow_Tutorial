@@ -7,3 +7,7 @@ execute:
 launch_buttons:
   colab_url: "https://colab.research.google.com"
   binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
+repository:
+  url: https://github.com/jageo/Advanced_Jobflow_Tutorial
+html:
+  use_repository_button: true
