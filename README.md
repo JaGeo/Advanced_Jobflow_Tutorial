@@ -4,6 +4,7 @@ This tutorial is aimed at developers who would like to develop workflows with [J
 
 This tutorial includes information on how to write a job for jobflows, how to connect jobs to a workflow including dynamic features and how to store job results in databases. The structure of the workflow is inspired by workflows that have been developed for [atomate2](https://github.com/materialsproject/atomate2) and [quacc](https://github.com/Quantum-Accelerators/quacc).
 
+This tutorial is also connected to binder and google collab so that you can execute the code via their services.
 
 ## Contributions
 Everyone is very much invited to contribute suggestions or changes via pull requests.
