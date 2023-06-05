@@ -403,7 +403,6 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
-!pip install maggma==0.51.3
 !pip install jobflow
 </pre></div>
 </div>
@@ -530,22 +529,22 @@ Sites (1)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[0.0, 1.95, 1.95], [1.95, 0.0, 1.95], [1.95, 1.95, 0.0]], calculator=EMT(...))
       Step     Time          Energy         fmax
-BFGS:    0 07:12:33        0.088477        1.5173
+BFGS:    0 07:24:09        0.088477        1.5173
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 07:12:33        0.018361        0.6601
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 07:24:09        0.018361        0.6601
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 07:12:33       -0.000016        0.0864
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 07:24:09       -0.000016        0.0864
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 07:12:33       -0.000365        0.0064
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 07:24:09       -0.000365        0.0064
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 07:12:33       -0.000367        0.0001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 07:24:09       -0.000367        0.0001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    5 07:12:33       -0.000367        0.0000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    5 07:24:09       -0.000367        0.0000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.0317762972959135, 2.3373590085817006e-15, 2.0317762972959117], [2.031776297295913, 2.0317762972959126, 1.2589072243282675e-16]], calculator=EMT(...))
@@ -684,60 +683,8 @@ Cell([[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.03177
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ContextualVersionConflict</span><span class="g g-Whitespace">                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jobflow.core.maker</span> <span class="kn">import</span> <span class="n">Maker</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.11</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jobflow</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Jobflow is a package for writing dynamic and connected workflows.&quot;&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">jobflow._version</span> <span class="kn">import</span> <span class="n">__version__</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">jobflow.core.flow</span> <span class="kn">import</span> <span class="n">Flow</span><span class="p">,</span> <span class="n">JobOrder</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">jobflow.core.job</span> <span class="kn">import</span> <span class="n">Job</span><span class="p">,</span> <span class="n">JobConfig</span><span class="p">,</span> <span class="n">Response</span><span class="p">,</span> <span class="n">job</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.11</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jobflow</span><span class="o">/</span><span class="n">_version</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">DistributionNotFound</span><span class="p">,</span> <span class="n">get_distribution</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s2">&quot;jobflow&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">except</span> <span class="n">DistributionNotFound</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="c1"># package is not installed</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/pkg_resources/__init__.py:478,</span> in <span class="ni">get_distribution</span><span class="nt">(dist)</span>
-<span class="g g-Whitespace">    </span><span class="mi">476</span>     <span class="n">dist</span> <span class="o">=</span> <span class="n">Requirement</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">477</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">Requirement</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">478</span>     <span class="n">dist</span> <span class="o">=</span> <span class="n">get_provider</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">479</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">Distribution</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">480</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Expected string, Requirement, or Distribution&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/pkg_resources/__init__.py:354,</span> in <span class="ni">get_provider</span><span class="nt">(moduleOrReq)</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return an IResourceProvider for the named module or requirement&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">353</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">moduleOrReq</span><span class="p">,</span> <span class="n">Requirement</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">354</span>     <span class="k">return</span> <span class="n">working_set</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">moduleOrReq</span><span class="p">)</span> <span class="ow">or</span> <span class="n">require</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">moduleOrReq</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">356</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">moduleOrReq</span><span class="p">]</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/pkg_resources/__init__.py:909,</span> in <span class="ni">WorkingSet.require</span><span class="nt">(self, *requirements)</span>
-<span class="g g-Whitespace">    </span><span class="mi">900</span> <span class="k">def</span> <span class="nf">require</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">requirements</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">901</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Ensure that distributions matching `requirements` are activated</span>
-<span class="g g-Whitespace">    </span><span class="mi">902</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">903</span><span class="sd">     `requirements` must be a string or a (possibly-nested) sequence</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">907</span><span class="sd">     included, even if they were already activated in this working set.</span>
-<span class="g g-Whitespace">    </span><span class="mi">908</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">909</span>     <span class="n">needed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">parse_requirements</span><span class="p">(</span><span class="n">requirements</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">911</span>     <span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="n">needed</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">912</span>         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/pkg_resources/__init__.py:800,</span> in <span class="ni">WorkingSet.resolve</span><span class="nt">(self, requirements, env, installer, replace_conflicting, extras)</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span> <span class="k">if</span> <span class="n">dist</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">req</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="c1"># Oops, the &quot;best&quot; so far conflicts with a dependency</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span>     <span class="n">dependent_req</span> <span class="o">=</span> <span class="n">required_by</span><span class="p">[</span><span class="n">req</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">800</span>     <span class="k">raise</span> <span class="n">VersionConflict</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">req</span><span class="p">)</span><span class="o">.</span><span class="n">with_context</span><span class="p">(</span><span class="n">dependent_req</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">802</span> <span class="c1"># push the new requirements onto the stack</span>
-<span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="n">new_requirements</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">requires</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">extras</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">ContextualVersionConflict</span>: (pyzmq 25.1.0 (/opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages), Requirement.parse(&#39;pyzmq==24.0.1&#39;), {&#39;maggma&#39;})
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/maggma/utils.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from tqdm.autonotebook import tqdm
 </pre></div>
 </div>
 </div>
@@ -892,13 +839,25 @@ Cell([[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.03177
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 09:09:36,946 INFO Started executing jobs locally
-2023-06-05 09:09:36,952 INFO Starting job - EMT-Optimization (4bba1d50-fdff-4ae3-ade0-a9a8d97872e8)
-2023-06-05 09:09:37,125 INFO Finished job - EMT-Optimization (4bba1d50-fdff-4ae3-ade0-a9a8d97872e8)
-2023-06-05 09:09:37,127 INFO Starting job - EMT-Optimization (43a2da5a-5cce-4d1e-951c-8311b2712bd6)
-2023-06-05 09:09:37,179 INFO Finished job - EMT-Optimization (43a2da5a-5cce-4d1e-951c-8311b2712bd6)
-2023-06-05 09:09:37,180 INFO Finished executing jobs locally
-{&#39;4bba1d50-fdff-4ae3-ade0-a9a8d97872e8&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:10,730 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:10,907 INFO Starting job - EMT-Optimization (8848ef05-d562-45a5-91e3-e059d02e2f6d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,121 INFO Finished job - EMT-Optimization (8848ef05-d562-45a5-91e3-e059d02e2f6d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,124 INFO Starting job - EMT-Optimization (dde4f683-a12c-4d94-bacf-3359c834c494)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,173 INFO Finished job - EMT-Optimization (dde4f683-a12c-4d94-bacf-3359c834c494)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,175 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;8848ef05-d562-45a5-91e3-e059d02e2f6d&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
 Lattice
     abc : 2.87336550651202 2.8733655065120205 2.87336550651202
  angles : 59.99999999999999 60.00000000000001 59.99999999999999
@@ -916,7 +875,7 @@ Lattice
       B : 2.0 0.0 2.0
       C : 2.0 2.0 0.0
     pbc : True True True
-PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&#39;: -0.000366862539422641}, detour=None, addition=None, replace=None, stored_data=None, stop_children=False, stop_jobflow=False)}, &#39;43a2da5a-5cce-4d1e-951c-8311b2712bd6&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
+PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&#39;: -0.000366862539422641}, detour=None, addition=None, replace=None, stored_data=None, stop_children=False, stop_jobflow=False)}, &#39;dde4f683-a12c-4d94-bacf-3359c834c494&#39;: {1: Response(output={&#39;optimized_structure&#39;: Structure Summary
 Lattice
     abc : 2.87336550651202 2.8733655065120205 2.87336550651202
  angles : 59.99999999999999 60.00000000000001 59.99999999999999
@@ -988,28 +947,70 @@ PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 09:09:37,207 INFO Started executing jobs locally
-2023-06-05 09:09:37,210 INFO Starting job - EMT-Optimization (f39c0132-a1b5-4633-a353-431bdd673e3c)
-2023-06-05 09:09:37,327 INFO Finished job - EMT-Optimization (f39c0132-a1b5-4633-a353-431bdd673e3c)
-2023-06-05 09:09:37,329 INFO Starting job - get_ev_curve (f6997120-2a52-400a-9db2-d0110d35e81e)
-2023-06-05 09:09:37,354 INFO Finished job - get_ev_curve (f6997120-2a52-400a-9db2-d0110d35e81e)
-2023-06-05 09:09:37,361 INFO Starting job - EMT-Optimization (d3726b72-7edb-4125-b58a-d7d81bd5d73b)
-2023-06-05 09:09:37,399 INFO Finished job - EMT-Optimization (d3726b72-7edb-4125-b58a-d7d81bd5d73b)
-2023-06-05 09:09:37,401 INFO Starting job - EMT-Optimization (1e6021ab-3006-4d2e-8ec7-52abe55cde6e)
-2023-06-05 09:09:37,442 INFO Finished job - EMT-Optimization (1e6021ab-3006-4d2e-8ec7-52abe55cde6e)
-2023-06-05 09:09:37,443 INFO Starting job - EMT-Optimization (5aac47cf-604b-4372-92d8-e56941601e88)
-2023-06-05 09:09:37,478 INFO Finished job - EMT-Optimization (5aac47cf-604b-4372-92d8-e56941601e88)
-2023-06-05 09:09:37,479 INFO Starting job - EMT-Optimization (99d27faa-bdb4-4db5-af88-5aa4385cd6ff)
-2023-06-05 09:09:37,511 INFO Finished job - EMT-Optimization (99d27faa-bdb4-4db5-af88-5aa4385cd6ff)
-2023-06-05 09:09:37,513 INFO Starting job - EMT-Optimization (f261aedf-f730-45f7-ab2c-ffdb208b265a)
-2023-06-05 09:09:37,546 INFO Finished job - EMT-Optimization (f261aedf-f730-45f7-ab2c-ffdb208b265a)
-2023-06-05 09:09:37,547 INFO Starting job - EMT-Optimization (05be0c21-03a4-492c-81bc-38eb51ba10e3)
-2023-06-05 09:09:37,584 INFO Finished job - EMT-Optimization (05be0c21-03a4-492c-81bc-38eb51ba10e3)
-2023-06-05 09:09:37,586 INFO Starting job - EMT-Optimization (eaf91d1b-4561-44d7-8751-1fcf9f4decf2)
-2023-06-05 09:09:37,618 INFO Finished job - EMT-Optimization (eaf91d1b-4561-44d7-8751-1fcf9f4decf2)
-2023-06-05 09:09:37,619 INFO Starting job - store_inputs (f6997120-2a52-400a-9db2-d0110d35e81e, 2)
-2023-06-05 09:09:37,624 INFO Finished job - store_inputs (f6997120-2a52-400a-9db2-d0110d35e81e, 2)
-2023-06-05 09:09:37,624 INFO Finished executing jobs locally
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,205 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,211 INFO Starting job - EMT-Optimization (d0c92b30-0c41-455b-9dc6-a80f0ef2b123)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,366 INFO Finished job - EMT-Optimization (d0c92b30-0c41-455b-9dc6-a80f0ef2b123)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,369 INFO Starting job - get_ev_curve (6259eeb6-adbf-477f-ad52-f868808978ca)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,385 INFO Finished job - get_ev_curve (6259eeb6-adbf-477f-ad52-f868808978ca)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,397 INFO Starting job - EMT-Optimization (7f1b89e5-34b5-4a36-bc86-fd6503783436)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,449 INFO Finished job - EMT-Optimization (7f1b89e5-34b5-4a36-bc86-fd6503783436)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,453 INFO Starting job - EMT-Optimization (a1fb1167-cbd1-47cc-888a-960ee9d22de2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,493 INFO Finished job - EMT-Optimization (a1fb1167-cbd1-47cc-888a-960ee9d22de2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,498 INFO Starting job - EMT-Optimization (3b83264b-9d61-4e99-a2ad-b6bc2ada2369)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,549 INFO Finished job - EMT-Optimization (3b83264b-9d61-4e99-a2ad-b6bc2ada2369)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,554 INFO Starting job - EMT-Optimization (6ea3732c-5ea8-4c26-a7fb-a100dde76263)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,601 INFO Finished job - EMT-Optimization (6ea3732c-5ea8-4c26-a7fb-a100dde76263)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,603 INFO Starting job - EMT-Optimization (5cf0fc18-2fe0-4220-ad64-dcb95f37194f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,655 INFO Finished job - EMT-Optimization (5cf0fc18-2fe0-4220-ad64-dcb95f37194f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,657 INFO Starting job - EMT-Optimization (0840274b-e70a-44f0-b0bc-d4eda28f3d75)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,697 INFO Finished job - EMT-Optimization (0840274b-e70a-44f0-b0bc-d4eda28f3d75)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,700 INFO Starting job - EMT-Optimization (8b4a3b39-e853-4c8c-8eb5-f9e685ee7c00)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,739 INFO Finished job - EMT-Optimization (8b4a3b39-e853-4c8c-8eb5-f9e685ee7c00)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,740 INFO Starting job - store_inputs (6259eeb6-adbf-477f-ad52-f868808978ca, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,743 INFO Finished job - store_inputs (6259eeb6-adbf-477f-ad52-f868808978ca, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,744 INFO Finished executing jobs locally
 </pre></div>
 </div>
 </div>
@@ -1060,31 +1061,79 @@ PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 09:09:37,647 INFO Started executing jobs locally
-2023-06-05 09:09:37,650 INFO Starting job - EMT-Optimization (aa60306e-7480-4f55-8ce4-28062737c6cc)
-2023-06-05 09:09:37,772 INFO Finished job - EMT-Optimization (aa60306e-7480-4f55-8ce4-28062737c6cc)
-2023-06-05 09:09:37,773 INFO Starting job - get_ev_curve (89574327-8451-44a3-abbd-216ce056fb43)
-2023-06-05 09:09:37,794 INFO Finished job - get_ev_curve (89574327-8451-44a3-abbd-216ce056fb43)
-2023-06-05 09:09:37,800 INFO Starting job - EMT-Optimization (7269cfed-a7d2-4659-b596-2b0ea0b780e1)
-2023-06-05 09:09:37,833 INFO Finished job - EMT-Optimization (7269cfed-a7d2-4659-b596-2b0ea0b780e1)
-2023-06-05 09:09:37,834 INFO Starting job - EMT-Optimization (b065fe3c-1bcb-40e0-8095-4d2543f5b800)
-2023-06-05 09:09:37,866 INFO Finished job - EMT-Optimization (b065fe3c-1bcb-40e0-8095-4d2543f5b800)
-2023-06-05 09:09:37,867 INFO Starting job - EMT-Optimization (e4161919-493d-4ffe-a723-f5fb86826ccc)
-2023-06-05 09:09:37,901 INFO Finished job - EMT-Optimization (e4161919-493d-4ffe-a723-f5fb86826ccc)
-2023-06-05 09:09:37,902 INFO Starting job - EMT-Optimization (280c983a-cf08-4c0a-8700-400148a418f3)
-2023-06-05 09:09:37,934 INFO Finished job - EMT-Optimization (280c983a-cf08-4c0a-8700-400148a418f3)
-2023-06-05 09:09:37,935 INFO Starting job - EMT-Optimization (080ebd24-f21d-4f65-9ea1-9a56d2586ee2)
-2023-06-05 09:09:37,971 INFO Finished job - EMT-Optimization (080ebd24-f21d-4f65-9ea1-9a56d2586ee2)
-2023-06-05 09:09:37,975 INFO Starting job - EMT-Optimization (2f6399b8-7f22-4b35-b841-0197fae3f980)
-2023-06-05 09:09:38,006 INFO Finished job - EMT-Optimization (2f6399b8-7f22-4b35-b841-0197fae3f980)
-2023-06-05 09:09:38,008 INFO Starting job - EMT-Optimization (02e67550-e7f4-4fa0-a131-08f6dbe59eaa)
-2023-06-05 09:09:38,042 INFO Finished job - EMT-Optimization (02e67550-e7f4-4fa0-a131-08f6dbe59eaa)
-2023-06-05 09:09:38,044 INFO Starting job - store_inputs (89574327-8451-44a3-abbd-216ce056fb43, 2)
-2023-06-05 09:09:38,049 INFO Finished job - store_inputs (89574327-8451-44a3-abbd-216ce056fb43, 2)
-2023-06-05 09:09:38,050 INFO Starting job - get_results_ev_curve (851ca76a-3111-4105-8d8a-83f10e5492b1)
-2023-06-05 09:09:38,276 INFO Finished job - get_results_ev_curve (851ca76a-3111-4105-8d8a-83f10e5492b1)
-2023-06-05 09:09:38,278 INFO Finished executing jobs locally
-{&#39;V0&#39;: 16.7748202620472, &#39;e0&#39;: -0.00036673834964062735, &#39;B&#39;: 0.6250761058809655}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,764 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,767 INFO Starting job - EMT-Optimization (b895dc1e-d15f-4f6d-9bd9-09dabe59779f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,862 INFO Finished job - EMT-Optimization (b895dc1e-d15f-4f6d-9bd9-09dabe59779f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,863 INFO Starting job - get_ev_curve (f58b65f8-e9a0-4fbc-943f-a5d38eab599f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,874 INFO Finished job - get_ev_curve (f58b65f8-e9a0-4fbc-943f-a5d38eab599f)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,880 INFO Starting job - EMT-Optimization (a208f363-40de-41da-9137-daaa2d37edf9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,902 INFO Finished job - EMT-Optimization (a208f363-40de-41da-9137-daaa2d37edf9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,903 INFO Starting job - EMT-Optimization (1a748fc8-f88c-45e1-b5ab-defe9b8c2f01)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,941 INFO Finished job - EMT-Optimization (1a748fc8-f88c-45e1-b5ab-defe9b8c2f01)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:11,945 INFO Starting job - EMT-Optimization (486324ce-2b37-4021-8fd8-d4803fc1e91d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,011 INFO Finished job - EMT-Optimization (486324ce-2b37-4021-8fd8-d4803fc1e91d)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,015 INFO Starting job - EMT-Optimization (a02b7c9d-c4ba-48f2-9c7f-7bf0d827f08a)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,068 INFO Finished job - EMT-Optimization (a02b7c9d-c4ba-48f2-9c7f-7bf0d827f08a)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,073 INFO Starting job - EMT-Optimization (892f2d05-8dc6-47d4-8dff-24cb5ec33084)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,116 INFO Finished job - EMT-Optimization (892f2d05-8dc6-47d4-8dff-24cb5ec33084)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,121 INFO Starting job - EMT-Optimization (816af971-2307-493d-aaa0-8e5fa6038260)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,171 INFO Finished job - EMT-Optimization (816af971-2307-493d-aaa0-8e5fa6038260)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,174 INFO Starting job - EMT-Optimization (5bee06ff-5d05-4dde-84b6-40bffa826960)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,217 INFO Finished job - EMT-Optimization (5bee06ff-5d05-4dde-84b6-40bffa826960)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,221 INFO Starting job - store_inputs (f58b65f8-e9a0-4fbc-943f-a5d38eab599f, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,224 INFO Finished job - store_inputs (f58b65f8-e9a0-4fbc-943f-a5d38eab599f, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,229 INFO Starting job - get_results_ev_curve (d1202a2b-7a8b-4e7a-a5d3-d05ddead20b3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,404 INFO Finished job - get_results_ev_curve (d1202a2b-7a8b-4e7a-a5d3-d05ddead20b3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,406 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;V0&#39;: 16.7748202620472, &#39;e0&#39;: -0.00036673834964062735, &#39;B&#39;: 0.6250761058809655}
 </pre></div>
 </div>
 <img alt="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" src="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" />
@@ -1147,31 +1196,79 @@ PeriodicSite: Ag (0.0000, 0.0000, 0.0000) [0.0000, 0.0000, 0.0000], &#39;energy&
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 09:09:38,545 INFO Started executing jobs locally
-2023-06-05 09:09:38,548 INFO Starting job - EMT-Optimization (d1f41d40-674b-4938-bff2-60f6c72c1e1b)
-2023-06-05 09:09:38,662 INFO Finished job - EMT-Optimization (d1f41d40-674b-4938-bff2-60f6c72c1e1b)
-2023-06-05 09:09:38,664 INFO Starting job - get_ev_curve (1df7fa64-9210-4d11-a1d7-54d2fc9481a0)
-2023-06-05 09:09:38,690 INFO Finished job - get_ev_curve (1df7fa64-9210-4d11-a1d7-54d2fc9481a0)
-2023-06-05 09:09:38,697 INFO Starting job - EMT-Optimization (f5bda34f-3c85-4f56-94bb-2ffb277b3626)
-2023-06-05 09:09:38,729 INFO Finished job - EMT-Optimization (f5bda34f-3c85-4f56-94bb-2ffb277b3626)
-2023-06-05 09:09:38,731 INFO Starting job - EMT-Optimization (066dd9da-8ec3-4409-8192-86a8b254d111)
-2023-06-05 09:09:38,763 INFO Finished job - EMT-Optimization (066dd9da-8ec3-4409-8192-86a8b254d111)
-2023-06-05 09:09:38,765 INFO Starting job - EMT-Optimization (52e7d4f9-de3e-4133-85d5-748aa0f767a0)
-2023-06-05 09:09:38,798 INFO Finished job - EMT-Optimization (52e7d4f9-de3e-4133-85d5-748aa0f767a0)
-2023-06-05 09:09:38,800 INFO Starting job - EMT-Optimization (d574ad9a-4a0c-4b00-ae9a-5221c8e0626d)
-2023-06-05 09:09:38,832 INFO Finished job - EMT-Optimization (d574ad9a-4a0c-4b00-ae9a-5221c8e0626d)
-2023-06-05 09:09:38,833 INFO Starting job - EMT-Optimization (3854fb7a-4995-4814-9010-62e4cde4841c)
-2023-06-05 09:09:38,866 INFO Finished job - EMT-Optimization (3854fb7a-4995-4814-9010-62e4cde4841c)
-2023-06-05 09:09:38,867 INFO Starting job - EMT-Optimization (9ed16fcd-5a59-41aa-9854-2a412c31d878)
-2023-06-05 09:09:38,900 INFO Finished job - EMT-Optimization (9ed16fcd-5a59-41aa-9854-2a412c31d878)
-2023-06-05 09:09:38,901 INFO Starting job - EMT-Optimization (db810aa8-5fec-4168-8477-70f2b1f9e27b)
-2023-06-05 09:09:38,934 INFO Finished job - EMT-Optimization (db810aa8-5fec-4168-8477-70f2b1f9e27b)
-2023-06-05 09:09:38,935 INFO Starting job - store_inputs (1df7fa64-9210-4d11-a1d7-54d2fc9481a0, 2)
-2023-06-05 09:09:38,941 INFO Finished job - store_inputs (1df7fa64-9210-4d11-a1d7-54d2fc9481a0, 2)
-2023-06-05 09:09:38,943 INFO Starting job - get_results_ev_curve (a9def172-71d0-4156-944e-483e039c854f)
-2023-06-05 09:09:39,189 INFO Finished job - get_results_ev_curve (a9def172-71d0-4156-944e-483e039c854f)
-2023-06-05 09:09:39,193 INFO Finished executing jobs locally
-V0=16.7748202620472 e0=-0.00036673834964062735 B=0.6250761058809655
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,641 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,643 INFO Starting job - EMT-Optimization (6a4d0220-1ecb-402f-a6a4-2780c255e274)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,797 INFO Finished job - EMT-Optimization (6a4d0220-1ecb-402f-a6a4-2780c255e274)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,800 INFO Starting job - get_ev_curve (2cb21ef9-e7db-40b7-92c9-203c242d6a77)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,812 INFO Finished job - get_ev_curve (2cb21ef9-e7db-40b7-92c9-203c242d6a77)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,819 INFO Starting job - EMT-Optimization (5fc43573-b4ef-4dd1-b1ab-537b600de57c)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,843 INFO Finished job - EMT-Optimization (5fc43573-b4ef-4dd1-b1ab-537b600de57c)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,845 INFO Starting job - EMT-Optimization (73c77083-5ce3-4733-82e4-d3287e98d041)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,868 INFO Finished job - EMT-Optimization (73c77083-5ce3-4733-82e4-d3287e98d041)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,871 INFO Starting job - EMT-Optimization (926c7308-ad34-48a8-a8cd-927e98ca4cb0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,905 INFO Finished job - EMT-Optimization (926c7308-ad34-48a8-a8cd-927e98ca4cb0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,911 INFO Starting job - EMT-Optimization (63edbf28-3807-4f74-872e-2c7607a52acd)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,954 INFO Finished job - EMT-Optimization (63edbf28-3807-4f74-872e-2c7607a52acd)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:12,960 INFO Starting job - EMT-Optimization (d61f0b4b-404a-4b00-b446-0640c410fd2e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,005 INFO Finished job - EMT-Optimization (d61f0b4b-404a-4b00-b446-0640c410fd2e)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,008 INFO Starting job - EMT-Optimization (f013923f-c942-4abf-832c-05627e915d92)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,052 INFO Finished job - EMT-Optimization (f013923f-c942-4abf-832c-05627e915d92)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,056 INFO Starting job - EMT-Optimization (eaa7b573-9646-4cef-a29f-fba9299b5d29)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,100 INFO Finished job - EMT-Optimization (eaa7b573-9646-4cef-a29f-fba9299b5d29)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,101 INFO Starting job - store_inputs (2cb21ef9-e7db-40b7-92c9-203c242d6a77, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,106 INFO Finished job - store_inputs (2cb21ef9-e7db-40b7-92c9-203c242d6a77, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,111 INFO Starting job - get_results_ev_curve (34577e54-2a21-4d34-98d9-be63a68f14c7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,244 INFO Finished job - get_results_ev_curve (34577e54-2a21-4d34-98d9-be63a68f14c7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:13,246 INFO Finished executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V0=16.7748202620472 e0=-0.00036673834964062735 B=0.6250761058809655
 </pre></div>
 </div>
 <img alt="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" src="_images/a405f44f3286e2389ed38d6c88e1f4e8d572d2cab160ea362ef1253a24b8a5cb.png" />
@@ -1378,25 +1475,49 @@ V0=16.7748202620472 e0=-0.00036673834964062735 B=0.6250761058809655
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 09:09:42,346 INFO Started executing jobs locally
-2023-06-05 09:09:42,352 INFO Starting job - EMT-Optimization (f7db9a8e-8a4c-4d6e-bd5f-361c79d810d5)
-2023-06-05 09:09:42,594 INFO Finished job - EMT-Optimization (f7db9a8e-8a4c-4d6e-bd5f-361c79d810d5)
-2023-06-05 09:09:42,595 INFO Starting job - create_displacements (59523ce9-e8c2-48b0-9b69-65febbb8f0b2)
-2023-06-05 09:09:42,764 INFO Finished job - create_displacements (59523ce9-e8c2-48b0-9b69-65febbb8f0b2)
-2023-06-05 09:09:42,769 INFO Starting job - run_displacements (d986aa7a-3900-4c93-b854-9c9015d4f781)
-2023-06-05 09:09:42,794 INFO Finished job - run_displacements (d986aa7a-3900-4c93-b854-9c9015d4f781)
-2023-06-05 09:09:42,799 INFO Starting job - EMT-StaticRun (29e7f2c5-fd58-4dee-8174-078ce5b4e9ec)
-2023-06-05 09:09:42,835 INFO Finished job - EMT-StaticRun (29e7f2c5-fd58-4dee-8174-078ce5b4e9ec)
-2023-06-05 09:09:42,837 INFO Starting job - store_inputs (d986aa7a-3900-4c93-b854-9c9015d4f781, 2)
-2023-06-05 09:09:42,841 INFO Finished job - store_inputs (d986aa7a-3900-4c93-b854-9c9015d4f781, 2)
-2023-06-05 09:09:42,842 INFO Starting job - summarize_phonopy_results (f864f741-12f5-456d-afbb-66c801e23a9d)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,220 INFO Started executing jobs locally
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,223 INFO Starting job - EMT-Optimization (98c4d1ba-dcc5-46d3-8d04-9d88f2e50923)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,408 INFO Finished job - EMT-Optimization (98c4d1ba-dcc5-46d3-8d04-9d88f2e50923)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,409 INFO Starting job - create_displacements (40921008-6077-4152-a62d-c994c94428b9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,522 INFO Finished job - create_displacements (40921008-6077-4152-a62d-c994c94428b9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,527 INFO Starting job - run_displacements (f07a82ba-788b-48d3-ae1e-7b8823c48d59)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,535 INFO Finished job - run_displacements (f07a82ba-788b-48d3-ae1e-7b8823c48d59)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,539 INFO Starting job - EMT-StaticRun (5a58e63d-0050-4912-b8c2-0851d09f6bdb)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,570 INFO Finished job - EMT-StaticRun (5a58e63d-0050-4912-b8c2-0851d09f6bdb)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,572 INFO Starting job - store_inputs (f07a82ba-788b-48d3-ae1e-7b8823c48d59, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,575 INFO Finished job - store_inputs (f07a82ba-788b-48d3-ae1e-7b8823c48d59, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:16,577 INFO Starting job - summarize_phonopy_results (732dbc29-c101-412a-bee8-ce1c458d3707)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The PostScript backend does not support transparency; partially transparent artists will be rendered opaque.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 09:09:43,750 INFO Finished job - summarize_phonopy_results (f864f741-12f5-456d-afbb-66c801e23a9d)
-2023-06-05 09:09:43,754 INFO Finished executing jobs locally
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:17,256 INFO Finished job - summarize_phonopy_results (732dbc29-c101-412a-bee8-ce1c458d3707)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-05 07:24:17,259 INFO Finished executing jobs locally
 </pre></div>
 </div>
 <img alt="_images/920b659ab65c6cf08195bf4d82907a4e5c6cc0bd41ac2b9c73e613f3608b10af.png" src="_images/920b659ab65c6cf08195bf4d82907a4e5c6cc0bd41ac2b9c73e613f3608b10af.png" />
