@@ -1,1 +1,4 @@
-
+jobflow
+pymatgen
+ase
+phonopy
