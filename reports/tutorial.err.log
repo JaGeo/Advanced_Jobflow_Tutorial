@@ -1,0 +1,76 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from jobflow.core.maker import Maker
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mContextualVersionConflict[0m                 Traceback (most recent call last)
+Cell [0;32mIn[15], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mjobflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmaker[39;00m [38;5;28;01mimport[39;00m Maker
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/jobflow/__init__.py:3[0m
+[1;32m      1[0m [38;5;124;03m"""Jobflow is a package for writing dynamic and connected workflows."""[39;00m
+[0;32m----> 3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mjobflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_version[39;00m [38;5;28;01mimport[39;00m __version__
+[1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mjobflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mflow[39;00m [38;5;28;01mimport[39;00m Flow, JobOrder
+[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mjobflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mjob[39;00m [38;5;28;01mimport[39;00m Job, JobConfig, Response, job
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/jobflow/_version.py:4[0m
+[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpkg_resources[39;00m [38;5;28;01mimport[39;00m DistributionNotFound, get_distribution
+[1;32m      3[0m [38;5;28;01mtry[39;00m:
+[0;32m----> 4[0m     __version__ [38;5;241m=[39m [43mget_distribution[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mjobflow[39;49m[38;5;124;43m"[39;49m[43m)[49m[38;5;241m.[39mversion
+[1;32m      5[0m [38;5;28;01mexcept[39;00m DistributionNotFound:
+[1;32m      6[0m     [38;5;66;03m# package is not installed[39;00m
+[1;32m      7[0m     __version__ [38;5;241m=[39m [38;5;124m"[39m[38;5;124m"[39m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pkg_resources/__init__.py:466[0m, in [0;36mget_distribution[0;34m(dist)[0m
+[1;32m    464[0m     dist [38;5;241m=[39m Requirement[38;5;241m.[39mparse(dist)
+[1;32m    465[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(dist, Requirement):
+[0;32m--> 466[0m     dist [38;5;241m=[39m [43mget_provider[49m[43m([49m[43mdist[49m[43m)[49m
+[1;32m    467[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(dist, Distribution):
+[1;32m    468[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124m"[39m[38;5;124mExpected string, Requirement, or Distribution[39m[38;5;124m"[39m, dist)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pkg_resources/__init__.py:342[0m, in [0;36mget_provider[0;34m(moduleOrReq)[0m
+[1;32m    340[0m [38;5;250m[39m[38;5;124;03m"""Return an IResourceProvider for the named module or requirement"""[39;00m
+[1;32m    341[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(moduleOrReq, Requirement):
+[0;32m--> 342[0m     [38;5;28;01mreturn[39;00m working_set[38;5;241m.[39mfind(moduleOrReq) [38;5;129;01mor[39;00m [43mrequire[49m[43m([49m[38;5;28;43mstr[39;49m[43m([49m[43mmoduleOrReq[49m[43m)[49m[43m)[49m[[38;5;241m0[39m]
+[1;32m    343[0m [38;5;28;01mtry[39;00m:
+[1;32m    344[0m     module [38;5;241m=[39m sys[38;5;241m.[39mmodules[moduleOrReq]
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pkg_resources/__init__.py:886[0m, in [0;36mWorkingSet.require[0;34m(self, *requirements)[0m
+[1;32m    877[0m [38;5;28;01mdef[39;00m [38;5;21mrequire[39m([38;5;28mself[39m, [38;5;241m*[39mrequirements):
+[1;32m    878[0m [38;5;250m    [39m[38;5;124;03m"""Ensure that distributions matching `requirements` are activated[39;00m
+[1;32m    879[0m 
+[1;32m    880[0m [38;5;124;03m    `requirements` must be a string or a (possibly-nested) sequence[39;00m
+[0;32m   (...)[0m
+[1;32m    884[0m [38;5;124;03m    included, even if they were already activated in this working set.[39;00m
+[1;32m    885[0m [38;5;124;03m    """[39;00m
+[0;32m--> 886[0m     needed [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mresolve[49m[43m([49m[43mparse_requirements[49m[43m([49m[43mrequirements[49m[43m)[49m[43m)[49m
+[1;32m    888[0m     [38;5;28;01mfor[39;00m dist [38;5;129;01min[39;00m needed:
+[1;32m    889[0m         [38;5;28mself[39m[38;5;241m.[39madd(dist)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pkg_resources/__init__.py:777[0m, in [0;36mWorkingSet.resolve[0;34m(self, requirements, env, installer, replace_conflicting, extras)[0m
+[1;32m    774[0m [38;5;28;01mif[39;00m dist [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m req:
+[1;32m    775[0m     [38;5;66;03m# Oops, the "best" so far conflicts with a dependency[39;00m
+[1;32m    776[0m     dependent_req [38;5;241m=[39m required_by[req]
+[0;32m--> 777[0m     [38;5;28;01mraise[39;00m VersionConflict(dist, req)[38;5;241m.[39mwith_context(dependent_req)
+[1;32m    779[0m [38;5;66;03m# push the new requirements onto the stack[39;00m
+[1;32m    780[0m new_requirements [38;5;241m=[39m dist[38;5;241m.[39mrequires(req[38;5;241m.[39mextras)[::[38;5;241m-[39m[38;5;241m1[39m]
+
+[0;31mContextualVersionConflict[0m: (pyzmq 25.1.0 (/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages), Requirement.parse('pyzmq==24.0.1'), {'maggma'})
+
