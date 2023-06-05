@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/624529065.svg)](https://zenodo.org/badge/latestdoi/624529065)
+
 # Advanced Tutorial for Automating Tasks in Computational Materials Science with Jobflow
 
 This tutorial is aimed at developers who would like to develop workflows with Jobflow. This could include contributions to [atomate2](https://github.com/materialsproject/atomate2) and [quacc](https://github.com/Quantum-Accelerators/quacc). Jobflow workflows can also be executed with [Fireworks](https://github.com/materialsproject/fireworks) on Supercomputers.
