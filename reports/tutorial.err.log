@@ -15,14 +15,37 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from jobflow.core.maker import Maker
+from dataclasses import dataclass
+from jobflow import job, Maker
+from pymatgen.core.structure import Structure
+
+
+@dataclass
+class OptimizeJob(Maker):
+    """
+    Class to carry out a full optimization of a structure with the EMT calculator
+
+    Parameters
+    ----------
+    name
+        Name of the job.
+    """
+    name: str = "EMT-Optimization"
+
+    @job
+    def make(self, structure: Structure):
+        pass
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mContextualVersionConflict[0m                 Traceback (most recent call last)
-Cell [0;32mIn[15], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mjobflow[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmaker[39;00m [38;5;28;01mimport[39;00m Maker
+Cell [0;32mIn[16], line 2[0m
+[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mdataclasses[39;00m [38;5;28;01mimport[39;00m dataclass
+[0;32m----> 2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mjobflow[39;00m [38;5;28;01mimport[39;00m job, Maker
+[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpymatgen[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstructure[39;00m [38;5;28;01mimport[39;00m Structure
+[1;32m      6[0m [38;5;129m@dataclass[39m
+[1;32m      7[0m [38;5;28;01mclass[39;00m [38;5;21;01mOptimizeJob[39;00m(Maker):
 
 File [0;32m/opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/jobflow/__init__.py:3[0m
 [1;32m      1[0m [38;5;124;03m"""Jobflow is a package for writing dynamic and connected workflows."""[39;00m
