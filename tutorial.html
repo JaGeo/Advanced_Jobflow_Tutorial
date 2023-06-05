@@ -529,22 +529,22 @@ Sites (1)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[0.0, 1.95, 1.95], [1.95, 0.0, 1.95], [1.95, 1.95, 0.0]], calculator=EMT(...))
       Step     Time          Energy         fmax
-BFGS:    0 06:55:08        0.088477        1.5173
+BFGS:    0 06:59:21        0.088477        1.5173
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 06:55:08        0.018361        0.6601
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 06:59:21        0.018361        0.6601
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 06:55:08       -0.000016        0.0864
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 06:59:21       -0.000016        0.0864
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 06:55:08       -0.000365        0.0064
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 06:59:21       -0.000365        0.0064
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 06:55:08       -0.000367        0.0001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 06:59:21       -0.000367        0.0001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    5 06:55:08       -0.000367        0.0000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    5 06:59:21       -0.000367        0.0000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.0317762972959135, 2.3373590085817006e-15, 2.0317762972959117], [2.031776297295913, 2.0317762972959126, 1.2589072243282675e-16]], calculator=EMT(...))
@@ -678,8 +678,7 @@ Cell([[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.03177
 <p>To write an atomic job in jobflow, we have to inherit from the <code class="docutils literal notranslate"><span class="pre">Maker</span></code> class and adapt the <code class="docutils literal notranslate"><span class="pre">make</span></code> method. You can find more about jobs here: <a class="reference external" href="https://materialsproject.github.io/jobflow/tutorials/3-defining-jobs.html">https://materialsproject.github.io/jobflow/tutorials/3-defining-jobs.html</a>. Please don’t forget to add the decorators (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code>) as they are central for the execution of the workflow.  The decorator <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code> will add special methods to the class. See here for more info: <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="kn">from</span> <span class="nn">jobflow.core.maker</span> <span class="kn">import</span> <span class="n">Maker</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jobflow.core.maker</span> <span class="kn">import</span> <span class="n">Maker</span>
 </pre></div>
 </div>
 </div>
@@ -765,68 +764,6 @@ Cell([[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.03177
     <span class="nd">@job</span>
     <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">structure</span><span class="p">:</span> <span class="n">Structure</span><span class="p">):</span>
         <span class="k">pass</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ContextualVersionConflict</span><span class="g g-Whitespace">                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">jobflow</span> <span class="kn">import</span> <span class="n">job</span><span class="p">,</span> <span class="n">Maker</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">pymatgen.core.structure</span> <span class="kn">import</span> <span class="n">Structure</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nd">@dataclass</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">class</span> <span class="nc">OptimizeJob</span><span class="p">(</span><span class="n">Maker</span><span class="p">):</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.11</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jobflow</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Jobflow is a package for writing dynamic and connected workflows.&quot;&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">jobflow._version</span> <span class="kn">import</span> <span class="n">__version__</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">jobflow.core.flow</span> <span class="kn">import</span> <span class="n">Flow</span><span class="p">,</span> <span class="n">JobOrder</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">jobflow.core.job</span> <span class="kn">import</span> <span class="n">Job</span><span class="p">,</span> <span class="n">JobConfig</span><span class="p">,</span> <span class="n">Response</span><span class="p">,</span> <span class="n">job</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.11</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jobflow</span><span class="o">/</span><span class="n">_version</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">DistributionNotFound</span><span class="p">,</span> <span class="n">get_distribution</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s2">&quot;jobflow&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">except</span> <span class="n">DistributionNotFound</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="c1"># package is not installed</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/pkg_resources/__init__.py:478,</span> in <span class="ni">get_distribution</span><span class="nt">(dist)</span>
-<span class="g g-Whitespace">    </span><span class="mi">476</span>     <span class="n">dist</span> <span class="o">=</span> <span class="n">Requirement</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">477</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">Requirement</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">478</span>     <span class="n">dist</span> <span class="o">=</span> <span class="n">get_provider</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">479</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">Distribution</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">480</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Expected string, Requirement, or Distribution&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/pkg_resources/__init__.py:354,</span> in <span class="ni">get_provider</span><span class="nt">(moduleOrReq)</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return an IResourceProvider for the named module or requirement&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">353</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">moduleOrReq</span><span class="p">,</span> <span class="n">Requirement</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">354</span>     <span class="k">return</span> <span class="n">working_set</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">moduleOrReq</span><span class="p">)</span> <span class="ow">or</span> <span class="n">require</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">moduleOrReq</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">356</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">moduleOrReq</span><span class="p">]</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/pkg_resources/__init__.py:909,</span> in <span class="ni">WorkingSet.require</span><span class="nt">(self, *requirements)</span>
-<span class="g g-Whitespace">    </span><span class="mi">900</span> <span class="k">def</span> <span class="nf">require</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">requirements</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">901</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Ensure that distributions matching `requirements` are activated</span>
-<span class="g g-Whitespace">    </span><span class="mi">902</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">903</span><span class="sd">     `requirements` must be a string or a (possibly-nested) sequence</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">907</span><span class="sd">     included, even if they were already activated in this working set.</span>
-<span class="g g-Whitespace">    </span><span class="mi">908</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">909</span>     <span class="n">needed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">parse_requirements</span><span class="p">(</span><span class="n">requirements</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">911</span>     <span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="n">needed</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">912</span>         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/pkg_resources/__init__.py:800,</span> in <span class="ni">WorkingSet.resolve</span><span class="nt">(self, requirements, env, installer, replace_conflicting, extras)</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span> <span class="k">if</span> <span class="n">dist</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">req</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="c1"># Oops, the &quot;best&quot; so far conflicts with a dependency</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span>     <span class="n">dependent_req</span> <span class="o">=</span> <span class="n">required_by</span><span class="p">[</span><span class="n">req</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">800</span>     <span class="k">raise</span> <span class="n">VersionConflict</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">req</span><span class="p">)</span><span class="o">.</span><span class="n">with_context</span><span class="p">(</span><span class="n">dependent_req</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">802</span> <span class="c1"># push the new requirements onto the stack</span>
-<span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="n">new_requirements</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">requires</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">extras</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">ContextualVersionConflict</span>: (pyzmq 25.1.0 (/opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages), Requirement.parse(&#39;pyzmq==24.0.1&#39;), {&#39;maggma&#39;})
 </pre></div>
 </div>
 </div>
