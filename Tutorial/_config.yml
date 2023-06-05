@@ -6,7 +6,7 @@ execute:
   execute_notebooks: force
 launch_buttons:
   colab_url: "https://colab.research.google.com"
-  binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
+  #binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
 repository:
   url: https://github.com/jageo/Advanced_Jobflow_Tutorial
   path_to_book: Tutorial

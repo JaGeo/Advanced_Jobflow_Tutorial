@@ -1,4 +1,0 @@
-jobflow
-pymatgen
-ase
-phonopy
