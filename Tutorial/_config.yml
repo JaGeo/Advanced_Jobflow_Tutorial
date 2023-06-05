@@ -10,5 +10,6 @@ launch_buttons:
 repository:
   url: https://github.com/jageo/Advanced_Jobflow_Tutorial
   path_to_book: Tutorial
+  branch: main
 html:
   use_repository_button: true
