@@ -1,1 +1,2 @@
 jupyter-book
+pyzmq==24.0.1
