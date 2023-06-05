@@ -403,7 +403,6 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
-!pip install maggma
 !pip install jobflow
 </pre></div>
 </div>
@@ -530,22 +529,22 @@ Sites (1)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[0.0, 1.95, 1.95], [1.95, 0.0, 1.95], [1.95, 1.95, 0.0]], calculator=EMT(...))
       Step     Time          Energy         fmax
-BFGS:    0 07:02:34        0.088477        1.5173
+BFGS:    0 07:06:33        0.088477        1.5173
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 07:02:34        0.018361        0.6601
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 07:06:33        0.018361        0.6601
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 07:02:34       -0.000016        0.0864
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 07:06:33       -0.000016        0.0864
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 07:02:34       -0.000365        0.0064
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 07:06:33       -0.000365        0.0064
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 07:02:34       -0.000367        0.0001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 07:06:33       -0.000367        0.0001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    5 07:02:34       -0.000367        0.0000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    5 07:06:33       -0.000367        0.0000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Ag&#39;, pbc=True, cell=[[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.0317762972959135, 2.3373590085817006e-15, 2.0317762972959117], [2.031776297295913, 2.0317762972959126, 1.2589072243282675e-16]], calculator=EMT(...))
@@ -737,7 +736,7 @@ Cell([[-2.298712018099952e-16, 2.0317762972959157, 2.0317762972959117], [2.03177
 <span class="g g-Whitespace">    </span><span class="mi">802</span> <span class="c1"># push the new requirements onto the stack</span>
 <span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="n">new_requirements</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">requires</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">extras</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="ne">ContextualVersionConflict</span>: (pyzmq 25.1.0 (/opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages), Requirement.parse(&#39;pyzmq==24.0.1&#39;), {&#39;maggma&#39;})
+<span class="ne">ContextualVersionConflict</span>: (urllib3 2.0.2 (/opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages), Requirement.parse(&#39;urllib3&lt;1.27,&gt;=1.25.4&#39;), {&#39;botocore&#39;})
 </pre></div>
 </div>
 </div>
