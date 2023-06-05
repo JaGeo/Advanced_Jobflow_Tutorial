@@ -72,5 +72,5 @@ File [0;32m/opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages
 [1;32m    802[0m [38;5;66;03m# push the new requirements onto the stack[39;00m
 [1;32m    803[0m new_requirements [38;5;241m=[39m dist[38;5;241m.[39mrequires(req[38;5;241m.[39mextras)[::[38;5;241m-[39m[38;5;241m1[39m]
 
-[0;31mContextualVersionConflict[0m: (urllib3 2.0.2 (/opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages), Requirement.parse('urllib3<1.27,>=1.25.4'), {'botocore'})
+[0;31mContextualVersionConflict[0m: (pyzmq 25.1.0 (/opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages), Requirement.parse('pyzmq==24.0.1'), {'maggma'})
 
