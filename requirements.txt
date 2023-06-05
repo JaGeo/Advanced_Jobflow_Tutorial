@@ -1,1 +1,6 @@
+jobflow
+pymatgen
+ase
+phonopy
 jupyter-book
+
